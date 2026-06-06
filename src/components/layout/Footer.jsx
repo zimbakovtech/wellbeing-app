@@ -18,11 +18,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1.2fr]">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-paper">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-                  <path d="M4 15c2 0 2-7 4-7s2 7 4 7 2-7 4-7" stroke="#7298C2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
+              <img src="/favicon.png" alt="" aria-hidden="true" className="h-9 w-9 rounded-xl" />
               <span className="font-display text-lg text-ink">{t('brand')}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">{t('footer.tagline')}</p>
