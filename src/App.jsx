@@ -66,7 +66,7 @@ function LocalizedApp() {
       <ScrollToTop />
       <Layout>
         <Suspense fallback={<PageLoader />}>
-          <AnimatePresence mode="wait" initial={false}>
+          <AnimatePresence mode="wait" initial={false} key={lang}>
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={page(<Home />)} />
               <Route path="explore" element={page(<Explore />)} />
