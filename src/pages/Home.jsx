@@ -55,12 +55,6 @@ export default function Home() {
                 </Button>
               </div>
             </Reveal>
-            <Reveal delay={0.24}>
-              <p className="mt-6 flex items-center gap-2 text-sm text-ink-faint">
-                <Icon name="ShieldCheck" className="h-4 w-4" />
-                {t('home.privacy')}
-              </p>
-            </Reveal>
           </div>
 
           {/* Snapshot */}

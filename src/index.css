@@ -12,9 +12,18 @@
     scroll-behavior: smooth;
   }
 
+  /* Honour reduced-motion globally: near-instant transitions/animations.
+     Framer Motion is also gated in JS via useReducedMotion. */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 
@@ -53,11 +62,23 @@
     @apply rounded-2xl border border-line bg-surface shadow-soft;
   }
 
-  /* Subtle gradient halo used sparingly behind hero / accent areas */
+  /* Subtle gradient halo used sparingly behind hero / accent areas.
+     Drifts almost imperceptibly to feel alive without distracting. */
   .halo {
     background:
       radial-gradient(60% 60% at 20% 0%, rgba(114, 152, 194, 0.10) 0%, transparent 70%),
       radial-gradient(50% 50% at 90% 10%, rgba(110, 158, 132, 0.08) 0%, transparent 70%);
+    animation: haloDrift 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes haloDrift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(-2.5%, 1.5%, 0) scale(1.06);
+    }
   }
 
   .eyebrow {

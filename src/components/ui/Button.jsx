@@ -35,7 +35,8 @@ export default function Button({
 }) {
   const classes = cn(
     'group inline-flex select-none items-center justify-center rounded-full font-medium',
-    'transition-all duration-200 ease-gentle cursor-pointer disabled:cursor-not-allowed disabled:opacity-50',
+    'transition-all duration-200 ease-gentle cursor-pointer active:scale-[0.97]',
+    'disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100',
     VARIANTS[variant],
     SIZES[size],
     className,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { cn } from '../../lib/utils.js'
@@ -6,9 +6,9 @@ import Icon from '../ui/Icon.jsx'
 import Button from '../ui/Button.jsx'
 import { useI18n, LANGS, LANG_LABELS, swapLangInPath } from '../../i18n/I18nContext.jsx'
 
-function Wordmark({ to, label }) {
+function Wordmark({ to, label, onClick }) {
   return (
-    <Link to={to} className="group flex items-center gap-2.5" aria-label={label}>
+    <Link to={to} onClick={onClick} className="group flex items-center gap-2.5" aria-label={label}>
       <img
         src="/favicon.png"
         alt=""
@@ -51,7 +51,7 @@ function LangSwitch({ className, scope = 'd' }) {
             onClick={() => go(code)}
             aria-pressed={active}
             className={cn(
-              'relative cursor-pointer rounded-full px-2.5 py-1 text-xs font-semibold transition-colors duration-200',
+              'relative cursor-pointer rounded-full px-2.5 py-1 text-xs font-semibold transition-colors duration-200 active:scale-95',
               active ? 'text-ink' : 'text-ink-faint hover:text-ink',
             )}
           >
@@ -76,6 +76,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const reduce = useReducedMotion()
+  const closeRef = useRef(null)
 
   const NAV = [
     { to: lp('/'), label: t('nav.home'), end: true },
@@ -92,14 +93,32 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Close on route change.
   useEffect(() => setOpen(false), [location.pathname])
 
+  // Lock scroll, close on Escape, and move focus into the drawer while open.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
+    if (open) {
+      const onKey = (e) => e.key === 'Escape' && setOpen(false)
+      window.addEventListener('keydown', onKey)
+      const id = requestAnimationFrame(() => closeRef.current?.focus())
+      return () => {
+        window.removeEventListener('keydown', onKey)
+        cancelAnimationFrame(id)
+        document.body.style.overflow = ''
+      }
+    }
     return () => {
       document.body.style.overflow = ''
     }
   }, [open])
+
+  // Staggered entrance for the drawer links (skipped under reduced motion).
+  const listV = { closed: {}, open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } } }
+  const itemV = reduce
+    ? { closed: { opacity: 1 }, open: { opacity: 1 } }
+    : { closed: { opacity: 0, x: 20 }, open: { opacity: 1, x: 0 } }
 
   return (
     <header
@@ -152,53 +171,86 @@ export default function Navbar() {
         <div className="flex items-center gap-2 md:hidden">
           <LangSwitch scope="m" />
           <button
-            className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:bg-ink/[0.05]"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:bg-ink/[0.05] active:scale-95"
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
             aria-expanded={open}
           >
-            <Icon name={open ? 'X' : 'Menu'} />
+            <Icon name="Menu" />
           </button>
         </div>
       </nav>
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — slides in from the right */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            className="md:hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: reduce ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="container-page border-t border-line bg-paper/95 pb-5 pt-2 backdrop-blur-md">
-              <ul className="flex flex-col">
+          <div className="md:hidden">
+            {/* Scrim */}
+            <motion.div
+              className="fixed inset-0 z-40 bg-ink/40 backdrop-blur-[2px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reduce ? 0 : 0.25 }}
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+            />
+
+            {/* Panel */}
+            <motion.aside
+              role="dialog"
+              aria-modal="true"
+              aria-label={t('nav.home')}
+              className="fixed right-0 top-0 z-50 flex h-dvh w-[82%] max-w-xs flex-col border-l border-line bg-paper shadow-lift"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 360, damping: 38 }}
+            >
+              <div className="flex items-center justify-between border-b border-line px-5 py-4">
+                <Wordmark to={lp('/')} label={t('brand')} onClick={() => setOpen(false)} />
+                <button
+                  ref={closeRef}
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:bg-ink/[0.05] active:scale-95"
+                >
+                  <Icon name="X" />
+                </button>
+              </div>
+
+              <motion.ul
+                className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4"
+                variants={listV}
+                initial="closed"
+                animate="open"
+              >
                 {NAV.map((item) => (
-                  <li key={item.to}>
+                  <motion.li key={item.to} variants={itemV}>
                     <NavLink
                       to={item.to}
                       end={item.end}
                       className={({ isActive }) =>
                         cn(
                           'flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors',
-                          isActive ? 'bg-ink/[0.05] text-ink' : 'text-ink-soft hover:bg-ink/[0.03]',
+                          isActive ? 'bg-ink/[0.05] text-ink' : 'text-ink-soft hover:bg-ink/[0.04]',
                         )
                       }
                     >
                       {item.label}
                       <Icon name="ChevronRight" className="h-4 w-4 text-ink-faint" />
                     </NavLink>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
-              <div className="mt-3 px-4">
+              </motion.ul>
+
+              <div className="border-t border-line p-4">
                 <Button to={lp('/check')} className="w-full" iconRight="ArrowRight">
                   {t('common.takeCheck')}
                 </Button>
               </div>
-            </div>
-          </motion.div>
+            </motion.aside>
+          </div>
         )}
       </AnimatePresence>
     </header>

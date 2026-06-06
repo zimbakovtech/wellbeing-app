@@ -9,7 +9,7 @@ export default function Pill({ active, onClick, children, icon, dotColor, classN
       aria-pressed={active}
       className={cn(
         'inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium',
-        'transition-all duration-200 ease-gentle',
+        'transition-all duration-200 ease-gentle active:scale-95',
         active
           ? 'border-ink bg-ink text-paper shadow-soft'
           : 'border-line bg-surface text-ink-soft hover:border-ink/25 hover:text-ink',

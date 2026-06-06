@@ -15,7 +15,7 @@ export default function RecommendationCard({ rec, className }) {
       )}
     >
       <span
-        className="grid h-11 w-11 place-items-center rounded-xl"
+        className="grid h-11 w-11 place-items-center rounded-xl transition-transform duration-300 ease-gentle group-hover:scale-110 group-hover:-rotate-3"
         style={{ backgroundColor: `${accent.hex}1A`, color: accent.hex }}
       >
         <Icon name={rec.icon} className="h-5 w-5" strokeWidth={1.9} />
