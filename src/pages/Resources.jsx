@@ -9,14 +9,16 @@ import RecommendationCard from '../components/RecommendationCard.jsx'
 import { RECOMMENDATIONS, PRACTICES } from '../data/recommendations.js'
 import { DIMENSIONS } from '../data/questions.js'
 import { ACCENT } from '../data/topics.js'
-
-const FILTERS = [
-  { id: 'all', label: 'All' },
-  ...Object.entries(DIMENSIONS).map(([id, d]) => ({ id, label: d.label, accent: d.accent })),
-]
+import { useI18n } from '../i18n/I18nContext.jsx'
 
 export default function Resources() {
+  const { t, pick } = useI18n()
   const [filter, setFilter] = useState('all')
+
+  const filters = [
+    { id: 'all', label: t('resources.all') },
+    ...Object.entries(DIMENSIONS).map(([id, d]) => ({ id, label: pick(d.label), accent: d.accent })),
+  ]
   const list = filter === 'all' ? RECOMMENDATIONS : RECOMMENDATIONS.filter((r) => r.dimension === filter)
 
   return (
@@ -26,19 +28,14 @@ export default function Resources() {
         <Reveal>
           <span className="eyebrow">
             <span className="h-px w-6 bg-line-strong" aria-hidden="true" />
-            Resources & recommendations
+            {t('resources.eyebrow')}
           </span>
         </Reveal>
         <Reveal delay={0.05}>
-          <h1 className="mt-4 max-w-2xl text-balance text-4xl leading-[1.08] sm:text-5xl">
-            Small, doable steps that actually help
-          </h1>
+          <h1 className="mt-4 max-w-2xl text-balance text-4xl leading-[1.08] sm:text-5xl">{t('resources.title')}</h1>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink-muted">
-            Insight only matters if you can act on it. These are gentle, practical ideas — pick one
-            that fits your week, not all of them at once.
-          </p>
+          <p className="mt-4 max-w-prose text-lg leading-relaxed text-ink-muted">{t('resources.lead')}</p>
         </Reveal>
       </section>
 
@@ -49,13 +46,10 @@ export default function Resources() {
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-blue-300">
                 <Icon name="Wind" className="h-4 w-4" />
-                A two-minute reset
+                {t('resources.breathing.eyebrow')}
               </span>
-              <h2 className="mt-4 font-display text-3xl leading-snug text-paper">Breathe with the circle</h2>
-              <p className="mt-3 max-w-md leading-relaxed text-paper/70">
-                When things feel fast, slow breathing tells your body it’s safe to settle. Follow
-                the circle for a minute or two — in as it grows, out as it shrinks.
-              </p>
+              <h2 className="mt-4 font-display text-3xl leading-snug text-paper">{t('resources.breathing.title')}</h2>
+              <p className="mt-3 max-w-md leading-relaxed text-paper/70">{t('resources.breathing.lead')}</p>
             </div>
             <BreathingExercise />
           </div>
@@ -64,7 +58,7 @@ export default function Resources() {
 
       {/* Micro-practices */}
       <Section className="pt-0">
-        <SectionHeading eyebrow="Micro-practices" title="Tiny things, big over time" />
+        <SectionHeading eyebrow={t('resources.practices.eyebrow')} title={t('resources.practices.title')} />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PRACTICES.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.06}>
@@ -72,8 +66,8 @@ export default function Resources() {
                 <span className="grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-blue-600">
                   <Icon name={p.icon} className="h-5 w-5" strokeWidth={1.9} />
                 </span>
-                <h3 className="mt-5 font-display text-lg text-ink">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{p.body}</p>
+                <h3 className="mt-5 font-display text-lg text-ink">{pick(p.title)}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{pick(p.body)}</p>
               </div>
             </Reveal>
           ))}
@@ -82,20 +76,11 @@ export default function Resources() {
 
       {/* Recommendation library */}
       <Section className="pt-0">
-        <SectionHeading
-          eyebrow="The library"
-          title="Recommendations by theme"
-          lead="Filter to the area you’d like to work on. Each card pairs one concrete action with why it works."
-        />
+        <SectionHeading eyebrow={t('resources.library.eyebrow')} title={t('resources.library.title')} lead={t('resources.library.lead')} />
 
         <div className="mt-8 flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-          {FILTERS.map((f) => (
-            <Pill
-              key={f.id}
-              active={filter === f.id}
-              onClick={() => setFilter(f.id)}
-              dotColor={f.accent ? ACCENT[f.accent].hex : undefined}
-            >
+          {filters.map((f) => (
+            <Pill key={f.id} active={filter === f.id} onClick={() => setFilter(f.id)} dotColor={f.accent ? ACCENT[f.accent].hex : undefined}>
               {f.label}
             </Pill>
           ))}
@@ -128,11 +113,8 @@ export default function Resources() {
                 <Icon name="HeartHandshake" className="h-6 w-6" />
               </span>
               <div className="max-w-xl">
-                <h3 className="font-display text-xl text-ink">You don’t have to carry it alone</h3>
-                <p className="mt-2 leading-relaxed text-ink-muted">
-                  This is a reflective tool, not a medical service. If things feel heavy, reach out
-                  to someone you trust, or contact a youth support service in your area.
-                </p>
+                <h3 className="font-display text-xl text-ink">{t('resources.support.title')}</h3>
+                <p className="mt-2 leading-relaxed text-ink-muted">{t('resources.support.lead')}</p>
               </div>
             </div>
             <Button
@@ -143,7 +125,7 @@ export default function Resources() {
               target="_blank"
               rel="noreferrer"
             >
-              Find support
+              {t('common.findSupport')}
             </Button>
           </div>
         </Reveal>
@@ -152,53 +134,49 @@ export default function Resources() {
   )
 }
 
-/* Calm breathing orb. Inhale as it grows, exhale as it shrinks (4s each). */
+/* Calm breathing orb — inhale as it grows, exhale as it shrinks (4s each). */
 function BreathingExercise() {
+  const { t } = useI18n()
   const reduce = useReducedMotion()
   const [active, setActive] = useState(false)
-  const [phase, setPhase] = useState('Ready when you are')
+  const [phase, setPhase] = useState('ready')
 
   useEffect(() => {
     if (!active || reduce) return
-    setPhase('Breathe in')
-    const id = setInterval(() => {
-      setPhase((p) => (p === 'Breathe in' ? 'Breathe out' : 'Breathe in'))
-    }, 4000)
+    setPhase('in')
+    const id = setInterval(() => setPhase((p) => (p === 'in' ? 'out' : 'in')), 4000)
     return () => clearInterval(id)
   }, [active, reduce])
+
+  const label = phase === 'ready' ? t('resources.breathing.ready') : t(`resources.breathing.${phase}`)
+  const pulse =
+    active && !reduce
+      ? { duration: 4, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }
+      : { duration: 0.4 }
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative grid h-56 w-56 place-items-center">
-        {/* soft glow rings */}
         <motion.div
           className="absolute h-44 w-44 rounded-full bg-blue-400/20 blur-xl"
           animate={active && !reduce ? { scale: [1, 1.35] } : { scale: 1 }}
-          transition={
-            active && !reduce
-              ? { duration: 4, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }
-              : { duration: 0.4 }
-          }
+          transition={pulse}
         />
         <motion.div
           className="grid h-36 w-36 place-items-center rounded-full border border-white/15 bg-gradient-to-b from-blue-400/40 to-blue-500/20"
           animate={active && !reduce ? { scale: [1, 1.28] } : { scale: 1 }}
-          transition={
-            active && !reduce
-              ? { duration: 4, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }
-              : { duration: 0.4 }
-          }
+          transition={pulse}
         >
           <AnimatePresence mode="wait">
             <motion.span
-              key={phase}
+              key={label}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="text-center text-sm font-medium text-paper"
+              className="px-2 text-center text-sm font-medium text-paper"
             >
-              {phase}
+              {label}
             </motion.span>
           </AnimatePresence>
         </motion.div>
@@ -209,7 +187,7 @@ function BreathingExercise() {
         className="mt-2 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-white/10"
       >
         <Icon name={active ? 'X' : 'Wind'} className="h-4 w-4" />
-        {active ? 'Stop' : 'Start breathing'}
+        {active ? t('resources.breathing.stop') : t('resources.breathing.start')}
       </button>
     </div>
   )

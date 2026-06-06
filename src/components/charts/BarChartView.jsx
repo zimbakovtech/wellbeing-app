@@ -18,7 +18,7 @@ const GIRLS = '#4F79AC'
 const BOYS = '#B7C0CC'
 
 /** Grouped bars comparing Girls vs Boys for one topic across ages. */
-export default function BarChartView({ data, height = 240 }) {
+export default function BarChartView({ data, labels = { girls: 'Girls', boys: 'Boys' }, height = 240 }) {
   const reduce = useReducedMotion()
   return (
     <div style={{ height }}>
@@ -36,8 +36,8 @@ export default function BarChartView({ data, height = 240 }) {
             iconSize={9}
             wrapperStyle={{ fontSize: 13, color: '#6A707C', paddingTop: 8 }}
           />
-          <Bar dataKey="Girls" fill={GIRLS} radius={[6, 6, 0, 0]} maxBarSize={34} isAnimationActive={!reduce} />
-          <Bar dataKey="Boys" fill={BOYS} radius={[6, 6, 0, 0]} maxBarSize={34} isAnimationActive={!reduce} />
+          <Bar dataKey="Girls" name={labels.girls} fill={GIRLS} radius={[6, 6, 0, 0]} maxBarSize={34} isAnimationActive={!reduce} />
+          <Bar dataKey="Boys" name={labels.boys} fill={BOYS} radius={[6, 6, 0, 0]} maxBarSize={34} isAnimationActive={!reduce} />
         </BarChart>
       </ResponsiveContainer>
     </div>

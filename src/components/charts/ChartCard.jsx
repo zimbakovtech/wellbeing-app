@@ -1,5 +1,6 @@
 import Icon from '../ui/Icon.jsx'
 import { cn } from '../../lib/utils.js'
+import { useI18n } from '../../i18n/I18nContext.jsx'
 
 /**
  * Consistent shell for every chart: title, short explanation, the chart itself,
@@ -7,6 +8,7 @@ import { cn } from '../../lib/utils.js'
  * readers get the insight even though the SVG itself isn't readable.
  */
 export default function ChartCard({ title, description, takeaway, children, aside, className }) {
+  const { t } = useI18n()
   return (
     <figure className={cn('card flex flex-col p-6 sm:p-7', className)}>
       <figcaption>
@@ -33,7 +35,7 @@ export default function ChartCard({ title, description, takeaway, children, asid
         <p className="mt-5 flex items-start gap-2.5 border-t border-line pt-4 text-sm leading-relaxed text-ink-soft">
           <Icon name="Lightbulb" className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
           <span>
-            <span className="font-semibold text-ink">Takeaway · </span>
+            <span className="font-semibold text-ink">{t('common.takeaway')} · </span>
             {takeaway}
           </span>
         </p>

@@ -1,57 +1,80 @@
 // Topic catalogue — the editorial + data backbone of the app.
-// Each topic carries its identity (icon, accent), human-language content
-// (overview / why it matters / tips / reflection) and a relatable "raw"
-// statistic used for storytelling on the deep-dive pages.
-//
-// Numbers are HBSC-inspired and believable, but are illustrative simulated
-// figures created for this project — not a direct copy of official tables.
+// Every visible string is bilingual: { mk, en }. Numbers are HBSC-inspired and
+// illustrative (simulated for this project, not official tables). Copy is kept
+// short on purpose — one line of overview, one of why, one-line tips.
+
+const L = (mk, en) => ({ mk, en })
 
 export const TOPICS = [
   {
     id: 'sleep',
-    name: 'Sleep',
     accent: 'sleep',
     icon: 'Moon',
-    tagline: 'The quiet foundation everything else is built on.',
-    overview:
-      'Sleep is when the adolescent brain consolidates memory, regulates mood and recovers. Most teenagers need 8–10 hours, yet school start times, screens and social life pull the other way.',
-    why: 'Short sleep is linked with lower mood, weaker concentration in class and more conflict with others. It is one of the strongest everyday signals of how wellbeing is trending.',
-    metricLabel: 'Sleep wellbeing index',
-    stat: { value: '6.9h', label: 'Average on school nights at 15', sub: 'down from 8.4h at age 11' },
-    insight: 'Sleep appears to decline steadily with age, with the sharpest drop between 13 and 15.',
+    name: L('Сон', 'Sleep'),
+    tagline: L('Тивката основа на сѐ друго.', 'The quiet foundation for everything else.'),
+    overview: L(
+      'Сонот го обновува телото и умот. Тинејџерите имаат потреба од 8–10 часа, но екраните и обврските често одат против тоа.',
+      'Sleep restores body and mind. Teenagers need 8–10 hours, but screens and schedules pull the other way.',
+    ),
+    why: L(
+      'Краткиот сон го намалува расположението и концентрацијата — еден од најсилните дневни сигнали.',
+      'Short sleep lowers mood and focus — one of the clearest daily signals of wellbeing.',
+    ),
+    metricLabel: L('Индекс на сон', 'Sleep index'),
+    stat: {
+      value: L('6.9ч', '6.9h'),
+      label: L('Просечен сон на 15', 'Average sleep at 15'),
+      sub: L('од 8.4ч на 11 год.', 'down from 8.4h at age 11'),
+    },
+    insight: L(
+      'Сонот постојано опаѓа со возраста, најмногу меѓу 13 и 15.',
+      'Sleep declines steadily with age, sharpest between 13 and 15.',
+    ),
     tips: [
-      { title: 'Anchor your wake time', body: 'A consistent wake-up — even at weekends — steadies your body clock more than chasing extra hours.' },
-      { title: 'Dim the last hour', body: 'Lower light and put the phone across the room. Screens in bed are the most common reason sleep slips.' },
-      { title: 'Wind-down ritual', body: 'A short, repeatable routine — shower, stretch, read — signals to your brain that the day is closing.' },
+      { title: L('Фиксирај го будењето', 'Anchor your wake time'), body: L('Исто време на станување, дури и викенд.', 'The same wake-up, even at weekends.') },
+      { title: L('Затемни го последниот час', 'Dim the last hour'), body: L('Помалку светло и телефонот подалеку од кревет.', 'Less light, phone away from the bed.') },
+      { title: L('Ритуал за смирување', 'A wind-down ritual'), body: L('Туш, истегнување или книга пред спиење.', 'Shower, stretch or read before bed.') },
     ],
-    reflection: 'Do you feel genuinely rested on most school mornings?',
+    reflection: L('Се чувствуваш ли одморен повеќето училишни утра?', 'Do you feel rested most school mornings?'),
     raw: {
-      label: 'Average hours slept on school nights',
-      unit: 'h',
+      label: L('Просечен сон во училишна ноќ', 'Average sleep on school nights'),
+      unit: L('ч', 'h'),
       series: { 11: 8.4, 13: 7.6, 15: 6.9 },
-      reference: { value: 9, label: 'Recommended' },
+      reference: { value: 9, label: L('Препорачано', 'Recommended') },
     },
   },
   {
     id: 'stress',
-    name: 'Stress',
     accent: 'stress',
     icon: 'HeartPulse',
-    tagline: 'Pressure is normal — feeling crushed by it is the signal.',
-    overview:
-      'A little stress sharpens focus. Sustained pressure — from schoolwork, expectations and comparison — is what wears wellbeing down. Recognising it early is half the work.',
-    why: 'School-related pressure rises through adolescence and is reported more often by girls. It shapes sleep, mood and how supported young people feel.',
-    metricLabel: 'Low-stress wellbeing index',
-    stat: { value: '46%', label: 'Feel pressured by schoolwork at 15', sub: 'up from 22% at age 11' },
-    insight: 'Stress is higher among older students, and the gap between boys and girls widens with age.',
+    name: L('Стрес', 'Stress'),
+    tagline: L('Притисокот е нормален — да те смачка е сигналот.', 'Pressure is normal — feeling crushed is the signal.'),
+    overview: L(
+      'Малку стрес изострува фокус. Постојаниот притисок од училиште и споредбите е тоа што ја троши благосостојбата.',
+      'A little stress sharpens focus. Sustained pressure — from school and comparison — is what wears wellbeing down.',
+    ),
+    why: L(
+      'Притисокот од училиште расте со годините и е почест кај девојчињата.',
+      'School pressure rises through adolescence and is reported more often by girls.',
+    ),
+    metricLabel: L('Индекс на ниско ниво на стрес', 'Low-stress index'),
+    stat: {
+      value: L('46%', '46%'),
+      label: L('Чувствуваат притисок од училиште', 'Feel pressured by school'),
+      sub: L('до 15 год., од 22% на 11', 'by age 15, up from 22%'),
+    },
+    insight: L(
+      'Стресот е повисок кај постарите, а разликата меѓу момчиња и девојчиња се шири.',
+      'Stress is higher among older students, and the boy–girl gap widens with age.',
+    ),
     tips: [
-      { title: 'Name it to tame it', body: 'Writing down what is worrying you reduces its grip. Vague pressure feels bigger than the words for it.' },
-      { title: 'Box breathing', body: 'Breathe in for four, hold four, out four, hold four. Two minutes resets a racing system.' },
-      { title: 'Shrink the next step', body: 'Swap “finish the project” for “open the doc and write one line.” Momentum beats motivation.' },
+      { title: L('Именувај го', 'Name it'), body: L('Запиши што те мачи — нејасниот притисок изгледа поголем.', 'Write down what worries you — vague pressure feels bigger.') },
+      { title: L('Дишење во квадрат', 'Box breathing'), body: L('Вдишувај 4, задржи 4, издишувај 4, задржи 4.', 'In for 4, hold 4, out 4, hold 4.') },
+      { title: L('Намали го чекорот', 'Shrink the next step'), body: L('Замени „заврши го проектот“ со „напиши една реченица“.', 'Swap “finish the project” for “write one line”.') },
     ],
-    reflection: 'When you feel pressure, do you have a way to let it out?',
+    reflection: L('Кога има притисок, имаш ли начин да го ослободиш?', 'When pressure builds, do you have a way to let it out?'),
     raw: {
-      label: 'Share feeling pressured by schoolwork',
+      label: L('Дел што чувствува притисок од училиште', 'Share feeling pressured by school'),
       unit: '%',
       series: { 11: 22, 13: 34, 15: 46 },
       reference: null,
@@ -60,24 +83,36 @@ export const TOPICS = [
   },
   {
     id: 'activity',
-    name: 'Physical Activity',
     accent: 'activity',
     icon: 'Footprints',
-    tagline: 'Movement is medicine you already own.',
-    overview:
-      'Guidelines suggest around 60 minutes of moderate activity a day. Movement lifts mood and sleep as much as it builds the body — but activity tends to fall as teenagers get older.',
-    why: 'Active young people report better mood, sleep and confidence. The decline through the teens — steeper for girls — is one of the clearest wellbeing patterns in the data.',
-    metricLabel: 'Activity wellbeing index',
-    stat: { value: '1 in 5', label: 'Meet daily activity guidelines at 15', sub: 'compared with 1 in 3 at age 11' },
-    insight: 'Daily activity falls with age, and fewer girls than boys reach the recommended hour.',
+    name: L('Физичка активност', 'Physical Activity'),
+    tagline: L('Лек што веќе го имаш.', 'Medicine you already own.'),
+    overview: L(
+      'Околу 60 минути движење дневно го подига расположението и сонот колку и телото — но активноста паѓа со возраста.',
+      'Around 60 minutes a day lifts mood and sleep as much as the body — but activity falls with age.',
+    ),
+    why: L(
+      'Активните млади имаат подобро расположение и сон. Падот е поостар кај девојчињата.',
+      'Active young people report better mood and sleep. The decline is steeper for girls.',
+    ),
+    metricLabel: L('Индекс на активност', 'Activity index'),
+    stat: {
+      value: L('1 на 5', '1 in 5'),
+      label: L('Доволно активни на 15', 'Meet activity guidelines at 15'),
+      sub: L('наспроти 1 на 3 на 11 год.', 'vs 1 in 3 at age 11'),
+    },
+    insight: L(
+      'Дневната активност паѓа со возраста, а помалку девојчиња го достигнуваат препорачаниот час.',
+      'Daily activity falls with age, and fewer girls reach the recommended hour.',
+    ),
     tips: [
-      { title: 'Stack it onto a habit', body: 'Walk part of the commute, stretch while a video loads. Activity you attach to routine actually sticks.' },
-      { title: 'Make it social', body: 'A walk with a friend counts twice — for the body and for connection. Company makes it repeatable.' },
-      { title: 'Lower the bar', body: 'Ten minutes is not nothing. Done often, short movement beats the perfect workout you skip.' },
+      { title: L('Прикачи го на навика', 'Stack it onto a habit'), body: L('Прошетај дел од патот или истегни се додека нешто се вчитува.', 'Walk part of the way, or stretch while something loads.') },
+      { title: L('Биди во друштво', 'Make it social'), body: L('Прошетка со пријател се брои двојно.', 'A walk with a friend counts twice.') },
+      { title: L('Спушти ја летвата', 'Lower the bar'), body: L('Десет минути не е ништо — често победува совршен тренинг.', 'Ten minutes is not nothing — often beats the perfect workout.') },
     ],
-    reflection: 'How does your body usually feel after you move?',
+    reflection: L('Како се чувствува телото откако ќе се движиш?', 'How does your body feel after you move?'),
     raw: {
-      label: 'Share meeting daily activity guidelines',
+      label: L('Дел што е доволно активен дневно', 'Share meeting daily activity guidelines'),
       unit: '%',
       series: { 11: 33, 13: 26, 15: 20 },
       reference: null,
@@ -85,24 +120,36 @@ export const TOPICS = [
   },
   {
     id: 'loneliness',
-    name: 'Loneliness',
     accent: 'loneliness',
     icon: 'Users',
-    tagline: 'You can be surrounded by people and still feel unseen.',
-    overview:
-      'Loneliness is the gap between the connection you have and the connection you want. It is common in adolescence and says nothing about your worth — but it deserves attention.',
-    why: 'Reported loneliness rises with age and is closely tied to mood and stress. Strong peer relationships are the clearest protective factor against it.',
-    metricLabel: 'Connection wellbeing index',
-    stat: { value: '28%', label: 'Often feel lonely at 15', sub: 'up from 14% at age 11' },
-    insight: 'Loneliness rises with age, but supportive friendships appear to buffer much of the effect.',
+    name: L('Осаменост', 'Loneliness'),
+    tagline: L('Можеш да си опкружен, а сепак невидлив.', 'You can be surrounded and still feel unseen.'),
+    overview: L(
+      'Осаменоста е јазот меѓу врската што ја имаш и онаа што ја сакаш. Честа е во адолесценцијата и не кажува ништо за твојата вредност.',
+      'Loneliness is the gap between the connection you have and the one you want. It’s common in adolescence and says nothing about your worth.',
+    ),
+    why: L(
+      'Осаменоста расте со возраста, но цврстите пријателства најмногу заштитуваат.',
+      'Loneliness rises with age, but strong friendships are the clearest protective factor.',
+    ),
+    metricLabel: L('Индекс на поврзаност', 'Connection index'),
+    stat: {
+      value: L('28%', '28%'),
+      label: L('Често се чувствуваат осамено на 15', 'Often feel lonely at 15'),
+      sub: L('од 14% на 11 год.', 'up from 14% at age 11'),
+    },
+    insight: L(
+      'Осаменоста расте со возраста, но поддржувачките пријателства голем дел го ублажуваат.',
+      'Loneliness rises with age, but supportive friendships buffer much of it.',
+    ),
     tips: [
-      { title: 'Reach first', body: 'Send the message you wish someone would send you. Most people are waiting for the same nudge.' },
-      { title: 'Small, regular contact', body: 'One steady connection beats many shallow ones. Consistency matters more than crowd size.' },
-      { title: 'Shared activity, not pressure', body: 'Doing something side by side — a game, a walk — builds closeness without the weight of “let’s talk”.' },
+      { title: L('Јави се прв', 'Reach first'), body: L('Прати ја пораката што би сакал некој да ти ја прати.', 'Send the message you wish someone would send you.') },
+      { title: L('Редовен, мал контакт', 'Small, regular contact'), body: L('Една стабилна врска вреди повеќе од многу површни.', 'One steady connection beats many shallow ones.') },
+      { title: L('Заедничка активност', 'Shared activity'), body: L('Игра или прошетка зближуваат без притисок.', 'A game or a walk builds closeness without pressure.') },
     ],
-    reflection: 'Is there someone you could reach out to this week?',
+    reflection: L('Има ли некој до кого би се обратил оваа недела?', 'Is there someone you could reach out to this week?'),
     raw: {
-      label: 'Share who often feel lonely',
+      label: L('Дел што често се чувствува осамено', 'Share who often feel lonely'),
       unit: '%',
       series: { 11: 14, 13: 21, 15: 28 },
       reference: null,
@@ -111,24 +158,36 @@ export const TOPICS = [
   },
   {
     id: 'digital',
-    name: 'Digital Balance',
     accent: 'digital',
     icon: 'Smartphone',
-    tagline: 'The goal isn’t less screen — it’s more of what matters.',
-    overview:
-      'Screens connect, entertain and inform. Balance is about whether time online leaves you feeling better or drained, and whether it crowds out sleep, movement and people.',
-    why: 'Heavy, late and passive use is associated with lower sleep and mood. Intentional, social use looks far healthier — so balance matters more than raw hours.',
-    metricLabel: 'Digital balance index',
-    stat: { value: '41%', label: 'Feel they use screens too much at 15', sub: 'and 1 in 3 use them right before sleep' },
-    insight: 'Lower digital balance tracks with lower self-reported wellbeing, especially when use spills into the night.',
+    name: L('Дигитална рамнотежа', 'Digital Balance'),
+    tagline: L('Целта не е помалку екран — туку повеќе од она што е важно.', 'The goal isn’t less screen — it’s more of what matters.'),
+    overview: L(
+      'Екраните поврзуваат и забавуваат. Рамнотежата е дали времето онлајн те остава подобро или испразнето.',
+      'Screens connect and entertain. Balance is whether time online leaves you better or emptier.',
+    ),
+    why: L(
+      'Доцната, пасивна употреба се поврзува со послаб сон и расположение. Намерната употреба изгледа поздраво.',
+      'Late, passive use is linked with poorer sleep and mood. Intentional use looks far healthier.',
+    ),
+    metricLabel: L('Индекс на дигитална рамнотежа', 'Digital balance index'),
+    stat: {
+      value: L('41%', '41%'),
+      label: L('Сметаат дека користат екрани премногу', 'Feel they use screens too much'),
+      sub: L('на 15 год.', 'at age 15'),
+    },
+    insight: L(
+      'Послабата дигитална рамнотежа се поврзува со пониска благосостојба, особено навечер.',
+      'Lower digital balance tracks with lower wellbeing, especially at night.',
+    ),
     tips: [
-      { title: 'Protect the bedroom', body: 'Charge devices outside the room. This single change improves sleep more than any app timer.' },
-      { title: 'Curate, don’t scroll', body: 'Follow accounts that leave you calmer or inspired; mute the ones that leave you comparing.' },
-      { title: 'Trade, don’t cut', body: 'Swap one scroll session for something offline you enjoy. Replacing beats restricting.' },
+      { title: L('Заштити ја спалната', 'Protect the bedroom'), body: L('Полни го телефонот надвор од собата.', 'Charge your phone outside the room.') },
+      { title: L('Бирај, не скролај', 'Curate, don’t scroll'), body: L('Следи сметки што те смируваат; стиши ги оние што те споредуваат.', 'Follow accounts that calm you; mute the ones that make you compare.') },
+      { title: L('Замени, не сечи', 'Trade, don’t cut'), body: L('Замени едно скролање со нешто офлајн што го сакаш.', 'Swap one scroll for something offline you enjoy.') },
     ],
-    reflection: 'After time online, do you usually feel better or emptier?',
+    reflection: L('По време онлајн, обично се чувствуваш подобро или попразно?', 'After time online, do you feel better or emptier?'),
     raw: {
-      label: 'Share who feel they use screens too much',
+      label: L('Дел што смета дека користи екрани премногу', 'Share who feel they use screens too much'),
       unit: '%',
       series: { 11: 24, 13: 33, 15: 41 },
       reference: null,
@@ -137,24 +196,36 @@ export const TOPICS = [
   },
   {
     id: 'school',
-    name: 'School Satisfaction',
     accent: 'school',
     icon: 'GraduationCap',
-    tagline: 'Liking school is about belonging, not just grades.',
-    overview:
-      'School satisfaction reflects whether young people feel they belong, are treated fairly and find meaning in their day. It shapes motivation and mood well beyond the classroom.',
-    why: 'Liking school protects wellbeing and tends to fall through the teens. Feeling supported by teachers and classmates is what holds it up.',
-    metricLabel: 'School wellbeing index',
-    stat: { value: '32%', label: 'Like school “a lot” at 15', sub: 'down from 58% at age 11' },
-    insight: 'School satisfaction declines with age, but a sense of belonging slows the fall.',
+    name: L('Задоволство од училиште', 'School Satisfaction'),
+    tagline: L('Да го сакаш училиштето е чувство на припадност.', 'Liking school is about belonging.'),
+    overview: L(
+      'Задоволството од училиште покажува дали младите чувствуваат припадност и смисла — тоа го обликува расположението и мотивацијата.',
+      'School satisfaction reflects whether young people feel they belong and find meaning — it shapes mood and motivation.',
+    ),
+    why: L(
+      'Да го сакаш училиштето ја штити благосостојбата, а опаѓа со годините. Поддршката го задржува.',
+      'Liking school protects wellbeing and falls through the teens. Feeling supported holds it up.',
+    ),
+    metricLabel: L('Индекс на училиште', 'School index'),
+    stat: {
+      value: L('32%', '32%'),
+      label: L('Многу го сакаат училиштето на 15', 'Like school “a lot” at 15'),
+      sub: L('од 58% на 11 год.', 'down from 58% at age 11'),
+    },
+    insight: L(
+      'Задоволството од училиште опаѓа со возраста, но чувството на припадност го забавува падот.',
+      'School satisfaction declines with age, but belonging slows the fall.',
+    ),
     tips: [
-      { title: 'Find one anchor', body: 'A subject, club or person you look forward to changes how the whole day feels.' },
-      { title: 'Ask for the why', body: 'Connecting work to something you care about turns box-ticking into something with meaning.' },
-      { title: 'Speak up early', body: 'Telling a teacher you are struggling — before it snowballs — is a strength, not a weakness.' },
+      { title: L('Најди едно сидро', 'Find one anchor'), body: L('Предмет, секција или личност што ја менува целата ден.', 'A subject, club or person that changes the whole day.') },
+      { title: L('Барај го „зошто“', 'Ask for the why'), body: L('Поврзи ја работата со нешто до кое ти е грижа.', 'Connect the work to something you care about.') },
+      { title: L('Кажи навреме', 'Speak up early'), body: L('Да кажеш дека ти е тешко е сила, не слабост.', 'Saying you’re struggling is a strength, not a weakness.') },
     ],
-    reflection: 'What is one thing about school you’d actually miss?',
+    reflection: L('Што е едно нешто од училиште што навистина би ти недостасувало?', 'What is one thing about school you’d actually miss?'),
     raw: {
-      label: 'Share who like school “a lot”',
+      label: L('Дел што многу го сака училиштето', 'Share who like school “a lot”'),
       unit: '%',
       series: { 11: 58, 13: 44, 15: 32 },
       reference: null,
@@ -164,13 +235,12 @@ export const TOPICS = [
 
 export const TOPIC_MAP = Object.fromEntries(TOPICS.map((t) => [t.id, t]))
 
-// Tailwind-friendly accent class helpers per topic (kept explicit so Tailwind's
-// JIT can see every class string at build time — no dynamic concatenation).
+// Tailwind-friendly accent helpers per topic (explicit so the JIT sees them).
 export const ACCENT = {
-  sleep: { hex: '#6C7BB3', text: 'text-topic-sleep', bg: 'bg-topic-sleep', soft: 'bg-[#6C7BB3]/10', ring: 'ring-[#6C7BB3]/30' },
-  stress: { hex: '#C58A6A', text: 'text-topic-stress', bg: 'bg-topic-stress', soft: 'bg-[#C58A6A]/10', ring: 'ring-[#C58A6A]/30' },
-  activity: { hex: '#6E9E84', text: 'text-topic-activity', bg: 'bg-topic-activity', soft: 'bg-[#6E9E84]/10', ring: 'ring-[#6E9E84]/30' },
-  loneliness: { hex: '#9080AE', text: 'text-topic-loneliness', bg: 'bg-topic-loneliness', soft: 'bg-[#9080AE]/10', ring: 'ring-[#9080AE]/30' },
-  digital: { hex: '#5C92A0', text: 'text-topic-digital', bg: 'bg-topic-digital', soft: 'bg-[#5C92A0]/10', ring: 'ring-[#5C92A0]/30' },
-  school: { hex: '#5E83B3', text: 'text-topic-school', bg: 'bg-topic-school', soft: 'bg-[#5E83B3]/10', ring: 'ring-[#5E83B3]/30' },
+  sleep: { hex: '#6C7BB3' },
+  stress: { hex: '#C58A6A' },
+  activity: { hex: '#6E9E84' },
+  loneliness: { hex: '#9080AE' },
+  digital: { hex: '#5C92A0' },
+  school: { hex: '#5E83B3' },
 }

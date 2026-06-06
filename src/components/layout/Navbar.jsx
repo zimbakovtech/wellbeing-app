@@ -1,44 +1,87 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { cn } from '../../lib/utils.js'
 import Icon from '../ui/Icon.jsx'
 import Button from '../ui/Button.jsx'
+import { useI18n, LANGS, LANG_LABELS, swapLangInPath } from '../../i18n/I18nContext.jsx'
 
-const NAV = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/explore', label: 'Explore Data' },
-  { to: '/topics', label: 'Topics' },
-  { to: '/check', label: 'Wellbeing Check' },
-  { to: '/resources', label: 'Resources' },
-]
-
-function Wordmark() {
+function Wordmark({ to, label }) {
   return (
-    <Link to="/" className="group flex items-center gap-2.5" aria-label="Youth Wellbeing — home">
+    <Link to={to} className="group flex items-center gap-2.5" aria-label={label}>
       <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-paper transition-transform duration-300 ease-gentle group-hover:-rotate-6">
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-          <path
-            d="M4 15c2 0 2-7 4-7s2 7 4 7 2-7 4-7"
-            stroke="#7298C2"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <path d="M4 15c2 0 2-7 4-7s2 7 4 7 2-7 4-7" stroke="#7298C2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </span>
-      <span className="font-display text-lg font-medium tracking-tight text-ink">
-        Youth Wellbeing
-      </span>
+      <span className="font-display text-lg font-medium tracking-tight text-ink">{label}</span>
     </Link>
   )
 }
 
+function LangSwitch({ className, scope = 'd' }) {
+  const { lang, t } = useI18n()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const reduce = useReducedMotion()
+
+  const go = (next) => {
+    if (next === lang) return
+    try {
+      localStorage.setItem('wb-lang', next)
+    } catch {
+      /* storage may be unavailable; default routing still works */
+    }
+    navigate(swapLangInPath(location.pathname, next) + location.hash, { replace: false })
+  }
+
+  return (
+    <div
+      role="group"
+      aria-label={t('langSwitch')}
+      className={cn('inline-flex rounded-full border border-line bg-paper p-0.5', className)}
+    >
+      {LANGS.map((code) => {
+        const active = code === lang
+        return (
+          <button
+            key={code}
+            onClick={() => go(code)}
+            aria-pressed={active}
+            className={cn(
+              'relative cursor-pointer rounded-full px-2.5 py-1 text-xs font-semibold transition-colors duration-200',
+              active ? 'text-ink' : 'text-ink-faint hover:text-ink',
+            )}
+          >
+            {active && (
+              <motion.span
+                layoutId={`lang-active-${scope}`}
+                className="absolute inset-0 rounded-full bg-surface shadow-soft"
+                transition={reduce ? { duration: 0 } : { type: 'spring', stiffness: 380, damping: 32 }}
+              />
+            )}
+            <span className="relative z-10">{LANG_LABELS[code].short}</span>
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function Navbar() {
+  const { t, lp } = useI18n()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const reduce = useReducedMotion()
+
+  const NAV = [
+    { to: lp('/'), label: t('nav.home'), end: true },
+    { to: lp('/explore'), label: t('nav.explore') },
+    { to: lp('/topics'), label: t('nav.topics') },
+    { to: lp('/check'), label: t('nav.check') },
+    { to: lp('/resources'), label: t('nav.resources') },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -47,10 +90,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close the mobile menu on route change.
   useEffect(() => setOpen(false), [location.pathname])
 
-  // Lock body scroll while the drawer is open.
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
@@ -62,13 +103,11 @@ export default function Navbar() {
     <header
       className={cn(
         'sticky top-0 z-40 transition-all duration-300 ease-gentle',
-        scrolled
-          ? 'border-b border-line bg-paper/85 backdrop-blur-md'
-          : 'border-b border-transparent bg-paper/0',
+        scrolled ? 'border-b border-line bg-paper/85 backdrop-blur-md' : 'border-b border-transparent bg-paper/0',
       )}
     >
       <nav className="container-page flex h-16 items-center justify-between sm:h-[4.5rem]">
-        <Wordmark />
+        <Wordmark to={lp('/')} label={t('brand')} />
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-1 md:flex">
@@ -99,22 +138,26 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
-          <li className="ml-2">
-            <Button to="/check" size="sm" variant="primary" iconRight="ArrowRight">
-              Start check
+          <li className="ml-2 flex items-center gap-2">
+            <LangSwitch />
+            <Button to={lp('/check')} size="sm" variant="primary" iconRight="ArrowRight">
+              {t('common.startCheck')}
             </Button>
           </li>
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:bg-ink/[0.05] md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          <Icon name={open ? 'X' : 'Menu'} />
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 md:hidden">
+          <LangSwitch scope="m" />
+          <button
+            className="grid h-10 w-10 cursor-pointer place-items-center rounded-full text-ink transition-colors hover:bg-ink/[0.05]"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            <Icon name={open ? 'X' : 'Menu'} />
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}
@@ -148,8 +191,8 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-3 px-4">
-                <Button to="/check" className="w-full" iconRight="ArrowRight">
-                  Start the wellbeing check
+                <Button to={lp('/check')} className="w-full" iconRight="ArrowRight">
+                  {t('common.takeCheck')}
                 </Button>
               </div>
             </div>

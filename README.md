@@ -10,17 +10,27 @@ data-informed product rather than a dashboard.
 
 ## What it does
 
-Five focused pages, one clear journey: **understand → reflect → act.**
+Five focused pages, one clear journey: **understand → reflect → act.** Every route
+is language-prefixed (`/mk` · `/en`); `/` redirects to Macedonian.
 
 | Page | Route | Purpose |
 |------|-------|---------|
-| **Home** | `/` | Premium hero, sample statistics, an HBSC explainer and the six themes. |
-| **Explore Data** | `/explore` | Interactive charts (trend, gender gap, radar profile, heatmap) with age/gender/topic filters and a plain-language "what this means" panel that updates live. |
-| **Topic Deep Dives** | `/topics`, `/topics/:id` | A short, readable story per theme: overview, why it matters, charts, three tips and a reflection prompt. |
-| **Wellbeing Check** | `/check` | A private, ten-question self-assessment with a stepped flow, progress bar, animated score ring, radar profile and matched recommendations. *Reflective, not diagnostic.* |
-| **Resources** | `/resources` | A guided breathing exercise, micro-practices and a filterable library of practical recommendations. |
+| **Home** | `/mk` | Hero, sample statistics, an HBSC explainer and the six themes. |
+| **Explore Data** | `/mk/explore` | Three focused charts (trajectory, girl/boy gap, radar profile) with a theme picker, a single group toggle and a live plain-language insight. |
+| **Topic Deep Dives** | `/mk/topics`, `/mk/topics/:id` | A short story per theme: overview, why it matters, a chart, three tips and a reflection prompt. |
+| **Wellbeing Check** | `/mk/check` | A private, ten-question self-assessment with a stepped flow, progress bar, animated score ring, radar profile and matched recommendations. *Reflective, not diagnostic.* |
+| **Resources** | `/mk/resources` | A guided breathing exercise, micro-practices and a filterable library of practical recommendations. |
 
 Themes covered: **sleep, stress, physical activity, loneliness, digital balance, school satisfaction.**
+
+## Languages
+
+Fully bilingual, **Macedonian-first**. Macedonian is the primary, default experience;
+English is an equal alternative. A visible **МК / EN** switch in the navbar swaps the
+language while keeping you on the same page (and remembers your choice). All visible
+copy — headings, navigation, cards, chart labels, check questions, recommendations,
+empty states — is hand-translated in [`src/i18n/strings.js`](src/i18n/strings.js), with
+the data layer carrying bilingual `{ mk, en }` content.
 
 ## Design
 
@@ -33,7 +43,7 @@ Themes covered: **sleep, stress, physical activity, loneliness, digital balance,
 
 - **Vite** + **React 18** + **React Router 6**
 - **Tailwind CSS** (custom design tokens in `tailwind.config.js`)
-- **Recharts** for charts; a custom CSS-grid heatmap
+- **Recharts** for charts (area, grouped bar, radar, donut)
 - **Framer Motion** for motion and route transitions
 - **lucide-react** icons (single, tree-shaken registry)
 
@@ -45,12 +55,13 @@ indices declining from age 11 → 15, widening boy/girl gaps) without copying of
 
 ```
 src/
-  data/          topics, datasets, questions, recommendations  (the data model)
+  i18n/          strings.js (UI copy, MK/EN) + I18nContext (lang, t, pick, lp)
+  data/          topics, datasets, questions, recommendations  (bilingual data model)
   lib/           scoring + small utilities
   components/
     ui/          Button, Card, Pill, SegmentedControl, Section, Reveal, Icon…
-    charts/      ChartCard + Line/Bar/Radar/Donut views + HeatmapMatrix
-    layout/      Navbar, Footer, Layout, ScrollToTop, PageTransition
+    charts/      ChartCard + Line/Bar/Radar/Donut views
+    layout/      Navbar (+ language switch), Footer, Layout, ScrollToTop, PageTransition
     *.jsx        TopicCard, InsightCard, RecommendationCard, StatCard
   pages/         Home, Explore, Topics, TopicDetail, WellbeingCheck, Resources, NotFound
 ```
@@ -68,18 +79,26 @@ Requires Node 18+ (CI uses Node 20).
 
 ## Deployment — GitHub Pages + custom domain
 
-This repo deploys to **https://wellbeing.zimbakov.dev** automatically.
+This repo deploys to **https://wellbeing.zimbakov.dev**.
 
-1. **GitHub Actions** ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)) builds and
-   publishes `dist/` to Pages on every push to `main`. In the repo: **Settings → Pages →
-   Build and deployment → Source: GitHub Actions**.
+1. **Tag-driven releases** — [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
+   builds and publishes `dist/` to Pages **only when a semantic version tag is pushed**
+   (`v1.0.0`, `v2.3.5`). Plain pushes to `main` and pull requests do **not** deploy. Cut a
+   release from a commit on `main`:
+
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+
+   In the repo once: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 2. **Custom domain** — [`public/CNAME`](public/CNAME) sets `wellbeing.zimbakov.dev`, so the
    site serves from the domain root (`base: '/'` in `vite.config.js`). Point a DNS `CNAME`
    record for `wellbeing` at `<username>.github.io`.
 3. **Client-side routing** — Pages has no SPA rewrite, so [`public/404.html`](public/404.html)
    stores the requested deep link and bounces to the app, which restores it via the History
-   API (script in `index.html`). Deep links like `/explore` and `/topics/sleep` work and are
-   shareable.
+   API (script in `index.html`). Deep links like `/mk/explore` and `/en/topics/sleep` work
+   and are shareable.
 
 ---
 

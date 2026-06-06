@@ -1,8 +1,12 @@
 name: Deploy to GitHub Pages
 
+# Deploy only on semantic version tags (e.g. v1.0.0, v2.3.5).
+# Tags are expected to be cut from a commit on main. Plain pushes to main and
+# pull requests build nothing here — releases are explicit and tag-driven.
 on:
   push:
-    branches: [main]
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
 
 permissions:
@@ -10,7 +14,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; cancel in-progress runs for the same ref.
+# One deployment at a time.
 concurrency:
   group: pages
   cancel-in-progress: true
