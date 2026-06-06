@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#FAFAF7" />
+    <meta
+      name="description"
+      content="Youth Wellbeing — a HBSC-inspired digital experience. Explore the habits, pressures and supports that shape adolescent wellbeing through data, stories and reflection."
+    />
+    <meta property="og:title" content="Youth Wellbeing" />
+    <meta
+      property="og:description"
+      content="Understand youth wellbeing through data and reflection. A HBSC-inspired digital experience for school-aged youth."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts: Fraunces (editorial display) + Inter (UI/body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Youth Wellbeing</title>
+
+    <!-- SPA redirect restore for GitHub Pages (paired with public/404.html) -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
