@@ -9,11 +9,13 @@ import { useI18n, LANGS, LANG_LABELS, swapLangInPath } from '../../i18n/I18nCont
 function Wordmark({ to, label }) {
   return (
     <Link to={to} className="group flex items-center gap-2.5" aria-label={label}>
-      <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-paper transition-transform duration-300 ease-gentle group-hover:-rotate-6">
-        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-          <path d="M4 15c2 0 2-7 4-7s2 7 4 7 2-7 4-7" stroke="#7298C2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </span>
+      <img
+        src="/favicon.png"
+        alt=""
+        width="36"
+        height="36"
+        className="h-9 w-9 rounded-xl object-cover transition-transform duration-300 ease-gentle group-hover:-rotate-6"
+      />
       <span className="font-display text-lg font-medium tracking-tight text-ink">{label}</span>
     </Link>
   )
