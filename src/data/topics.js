@@ -13,8 +13,8 @@ export const TOPICS = [
     name: L('Сон', 'Sleep'),
     tagline: L('Тивката основа на сѐ друго.', 'The quiet foundation for everything else.'),
     overview: L(
-      'Сонот го обновува телото и умот. Тинејџерите имаат потреба од 8–10 часа, но екраните и обврските често одат против тоа.',
-      'Sleep restores body and mind. Teenagers need 8–10 hours, but screens and schedules pull the other way.',
+      'Сонот го обновува телото и умот. Тинејџерите имаат потреба од 8–10 часа.',
+      'Sleep restores body and mind. Teenagers need 8–10 hours.',
     ),
     why: L(
       'Краткиот сон го намалува расположението и концентрацијата — еден од најсилните дневни сигнали.',
@@ -50,8 +50,8 @@ export const TOPICS = [
     name: L('Стрес', 'Stress'),
     tagline: L('Притисокот е нормален — да те смачка е сигналот.', 'Pressure is normal — feeling crushed is the signal.'),
     overview: L(
-      'Малку стрес изострува фокус. Постојаниот притисок од училиште и споредбите е тоа што ја троши благосостојбата.',
-      'A little stress sharpens focus. Sustained pressure — from school and comparison — is what wears wellbeing down.',
+      'Малку стрес изострува фокус. Постојаниот притисок е тоа што ја троши благосостојбата.',
+      'A little stress sharpens focus. Constant pressure is what wears wellbeing down.',
     ),
     why: L(
       'Притисокот од училиште расте со годините и е почест кај девојчињата.',
@@ -88,8 +88,8 @@ export const TOPICS = [
     name: L('Физичка активност', 'Physical Activity'),
     tagline: L('Лек што веќе го имаш.', 'Medicine you already own.'),
     overview: L(
-      'Околу 60 минути движење дневно го подига расположението и сонот колку и телото — но активноста паѓа со возраста.',
-      'Around 60 minutes a day lifts mood and sleep as much as the body — but activity falls with age.',
+      'Околу 60 минути движење дневно го подига расположението и сонот — но активноста паѓа со возраста.',
+      'Around 60 minutes a day lifts mood and sleep — but activity falls with age.',
     ),
     why: L(
       'Активните млади имаат подобро расположение и сон. Падот е поостар кај девојчињата.',
@@ -125,8 +125,8 @@ export const TOPICS = [
     name: L('Осаменост', 'Loneliness'),
     tagline: L('Можеш да си опкружен, а сепак невидлив.', 'You can be surrounded and still feel unseen.'),
     overview: L(
-      'Осаменоста е јазот меѓу врската што ја имаш и онаа што ја сакаш. Честа е во адолесценцијата и не кажува ништо за твојата вредност.',
-      'Loneliness is the gap between the connection you have and the one you want. It’s common in adolescence and says nothing about your worth.',
+      'Осаменоста е јазот меѓу врската што ја имаш и онаа што ја сакаш. Честа е и не кажува ништо за твојата вредност.',
+      'Loneliness is the gap between the connection you have and the one you want. It’s common, and says nothing about your worth.',
     ),
     why: L(
       'Осаменоста расте со возраста, но цврстите пријателства најмногу заштитуваат.',
@@ -201,8 +201,8 @@ export const TOPICS = [
     name: L('Задоволство од училиште', 'School Satisfaction'),
     tagline: L('Да го сакаш училиштето е чувство на припадност.', 'Liking school is about belonging.'),
     overview: L(
-      'Задоволството од училиште покажува дали младите чувствуваат припадност и смисла — тоа го обликува расположението и мотивацијата.',
-      'School satisfaction reflects whether young people feel they belong and find meaning — it shapes mood and motivation.',
+      'Задоволството од училиште покажува дали младите чувствуваат припадност и смисла.',
+      'School satisfaction reflects whether young people feel they belong and find meaning.',
     ),
     why: L(
       'Да го сакаш училиштето ја штити благосостојбата, а опаѓа со годините. Поддршката го задржува.',

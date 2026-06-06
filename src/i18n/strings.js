@@ -5,7 +5,7 @@
 export const UI = {
   /* ------------------------------------------------------------- MACEDONSKI */
   mk: {
-    brand: 'Благосостојба',
+    brand: 'Youth Wellbeing',
     nav: {
       home: 'Почетна',
       explore: 'Истражи',
@@ -36,8 +36,8 @@ export const UI = {
       eyebrow: 'Искуство инспирирано од HBSC',
       titleA: 'Разбери ја благосостојбата на младите преку податоци и',
       titleHighlight: 'размислување',
-      lead: 'Истражи што го обликува секојдневието на младите — и претвори го во мали, остварливи чекори.',
-      privacy: 'Приватно и рефлексивно — ништо не го напушта твојот уред.',
+      lead: 'Истражи што го обликува секојдневието на младите — и претвори го во мали чекори.',
+      privacy: 'Приватно — ништо не го напушта твојот уред.',
       snapshotTitle: 'Преглед на благосостојбата',
       snapshotSub: 'По теми · возраст 15',
       overallIndex: 'вкупен индекс',
@@ -45,7 +45,7 @@ export const UI = {
       why: {
         eyebrow: 'Зошто е важно',
         title: 'Адолесценцијата обликува навики за цел живот.',
-        lead: 'Сон, движење, луѓе на кои им веруваш — малите работи се собираат во тоа како се чувствуваш секој ден.',
+        lead: 'Сон, движење, луѓе на кои им веруваш — малите работи решаваат како се чувствуваш.',
       },
       pillars: [
         { title: 'Види ги обрасците', body: 'Графикони што покажуваат како се менуваат темите низ годините.' },
@@ -55,7 +55,7 @@ export const UI = {
       hbsc: {
         eyebrow: 'За HBSC',
         title: 'Инспирирано од студијата HBSC.',
-        body: 'HBSC е истражување во соработка со СЗО што ги прашува младите на 11, 13 и 15 години за нивното здравје и навики. Бројките тука се симулирани за учење, но обрасците се вистинити.',
+        body: 'HBSC ги прашува младите на 11, 13 и 15 години за здравјето и навиките. Бројките тука се симулирани, но обрасците се вистинити.',
         doTitle: 'Што можеш тука',
         do: [
           { t: 'Истражи', d: 'Податоци по возраст и пол.' },
@@ -126,7 +126,7 @@ export const UI = {
     check: {
       eyebrow: 'Проверка на благосостојба',
       introTitle: 'Тивок момент да провериш како си',
-      introLead: 'Десет кратки прашања за вообичаена недела. Нема точни одговори и нема резултати за споделување.',
+      introLead: 'Десет кратки прашања за вообичаена недела. Нема точни одговори.',
       bullets: [
         { t: '10 прашања', d: 'Околу две минути.' },
         { t: 'Целосно приватно', d: 'Ништо не се зачувува ни испраќа.' },
@@ -140,9 +140,9 @@ export const UI = {
       profileTitle: 'Твојот профил по теми',
       byTheme: 'По теми',
       startTitle: 'Нежно место за почеток',
-      startLeadA: 'Според темите што бараат малку внимание сега —',
+      startLeadA: 'Според темите што бараат внимание сега —',
       reassurance:
-        'Оваа проверка е размислување, не дијагноза. Ако нешто тежи, разговорот со некој на кого му веруваш е вистинска сила.',
+        'Ова е размислување, не дијагноза. Ако нешто тежи, разговорот со некој на кого му веруваш е сила.',
       retake: 'Повтори ја проверката',
       bands: {
         thriving: {
@@ -155,11 +155,11 @@ export const UI = {
         },
         finding: {
           title: 'Си го наоѓаш ритамот',
-          message: 'Некои делови работат потешко од други. Избери едно нежно место за почеток.',
+          message: 'Некои делови се потешки од други. Избери едно нежно место за почеток.',
         },
         low: {
           title: 'Малку си истоштен',
-          message: 'Неколку области бараат грижа. Биди нежен кон себе и не двоуми се да побараш поддршка.',
+          message: 'Неколку области бараат грижа. Биди нежен кон себе — да побараш поддршка е сила.',
         },
       },
     },
@@ -170,7 +170,7 @@ export const UI = {
       breathing: {
         eyebrow: 'Двоминутно смирување',
         title: 'Дишење со кругот',
-        lead: 'Бавното дишење му кажува на телото дека е безбедно. Следи го кругот — вдишувај додека расте, издишувај додека се смалува.',
+        lead: 'Бавното дишење го смирува телото. Следи го кругот — вдишувај додека расте, издишувај додека се смалува.',
         start: 'Започни дишење',
         stop: 'Запри',
         ready: 'Кога си спремен',
@@ -187,17 +187,17 @@ export const UI = {
       whyHelps: 'Зошто помага',
       support: {
         title: 'Не мораш да го носиш сам',
-        lead: 'Ова е алатка за размислување, не медицинска услуга. Ако тежи, обрати се до некој на кого му веруваш или до служба за поддршка на млади.',
+        lead: 'Ова е алатка за размислување, не медицинска услуга. Ако тежи, обрати се до некој на кого му веруваш.',
       },
       all: 'Сите',
     },
     footer: {
-      tagline: 'HBSC-инспирирано искуство што ги претвора податоците во приказни, размислување и поддршка.',
+      tagline: 'HBSC-инспирирано искуство: податоци, размислување и поддршка.',
       exploreCol: 'Истражи',
       supportTitle: 'Ако ти треба поддршка сега',
       supportText: 'Ова е рефлексивна алатка, не медицинска услуга. Ако ти е тешко, обрати се до некој на кого му веруваш.',
       findSupport: 'Најди поддршка за млади',
-      rights: '© 2026 Благосостојба на младите. Студентски проект со илустративни податоци.',
+      rights: '© 2026 Youth Wellbeing. Студентски проект со илустративни податоци.',
       dataNote: 'Прикажаните податоци се симулирани за едукативни цели.',
     },
     notFound: {
@@ -242,8 +242,8 @@ export const UI = {
       eyebrow: 'A HBSC-inspired wellbeing experience',
       titleA: 'Understand youth wellbeing through data and',
       titleHighlight: 'reflection',
-      lead: 'Explore what shapes young people’s day-to-day life — and turn it into small, doable steps.',
-      privacy: 'Private and reflective — nothing leaves your device.',
+      lead: 'Explore what shapes young people’s day-to-day life — and turn it into small steps.',
+      privacy: 'Private — nothing leaves your device.',
       snapshotTitle: 'Wellbeing snapshot',
       snapshotSub: 'Across themes · age 15',
       overallIndex: 'overall index',
@@ -251,7 +251,7 @@ export const UI = {
       why: {
         eyebrow: 'Why it matters',
         title: 'Adolescence shapes lifelong habits.',
-        lead: 'Sleep, movement, people you can talk to — small things add up to how a young person feels each day.',
+        lead: 'Sleep, movement, people you can talk to — small things decide how you feel.',
       },
       pillars: [
         { title: 'See the patterns', body: 'Charts that show how the themes shift across the years.' },
@@ -261,7 +261,7 @@ export const UI = {
       hbsc: {
         eyebrow: 'About HBSC',
         title: 'Inspired by the HBSC study.',
-        body: 'HBSC is a WHO-collaborative survey that asks young people aged 11, 13 and 15 about their health and habits. The figures here are simulated for learning, but the patterns are true to the research.',
+        body: 'HBSC asks young people aged 11, 13 and 15 about their health and habits. The figures here are simulated, but the patterns are real.',
         doTitle: 'What you can do here',
         do: [
           { t: 'Explore', d: 'Data by age and gender.' },
@@ -332,7 +332,7 @@ export const UI = {
     check: {
       eyebrow: 'Wellbeing check',
       introTitle: 'A quiet moment to check in with yourself',
-      introLead: 'Ten short questions about a typical week. No right answers and no scores to share.',
+      introLead: 'Ten short questions about a typical week. No right answers.',
       bullets: [
         { t: '10 questions', d: 'About two minutes.' },
         { t: 'Completely private', d: 'Nothing is saved or sent.' },
@@ -346,14 +346,14 @@ export const UI = {
       profileTitle: 'Your profile across themes',
       byTheme: 'By theme',
       startTitle: 'A gentle place to start',
-      startLeadA: 'Based on the themes asking for a little care right now —',
+      startLeadA: 'Based on the themes asking for care right now —',
       reassurance:
-        'This check is a reflection, not a diagnosis. If anything feels heavy, talking to someone you trust is a genuine strength.',
+        'A reflection, not a diagnosis. If anything feels heavy, talking to someone you trust is a strength.',
       retake: 'Retake the check',
       bands: {
         thriving: {
           title: 'Thriving and balanced',
-          message: 'Your habits and supports are working in your favour. Notice what helps and lean on it.',
+          message: 'Your habits and supports are working for you. Notice what helps.',
         },
         steady: {
           title: 'Steady, with room to grow',
@@ -365,7 +365,7 @@ export const UI = {
         },
         low: {
           title: 'Running a little low',
-          message: 'A few areas are asking for care. Be kind to yourself, and reaching out is a strength.',
+          message: 'A few areas are asking for care. Be gentle with yourself — reaching out is a strength.',
         },
       },
     },
@@ -376,7 +376,7 @@ export const UI = {
       breathing: {
         eyebrow: 'A two-minute reset',
         title: 'Breathe with the circle',
-        lead: 'Slow breathing tells your body it’s safe to settle. Follow the circle — in as it grows, out as it shrinks.',
+        lead: 'Slow breathing settles your body. Follow the circle — in as it grows, out as it shrinks.',
         start: 'Start breathing',
         stop: 'Stop',
         ready: 'Ready when you are',
@@ -393,12 +393,12 @@ export const UI = {
       whyHelps: 'Why it helps',
       support: {
         title: 'You don’t have to carry it alone',
-        lead: 'This is a reflective tool, not a medical service. If things feel heavy, reach out to someone you trust or a youth support service.',
+        lead: 'This is a reflective tool, not a medical service. If things feel heavy, reach out to someone you trust.',
       },
       all: 'All',
     },
     footer: {
-      tagline: 'A HBSC-inspired experience that turns data into stories, reflection and support.',
+      tagline: 'A HBSC-inspired experience: data, reflection and support.',
       exploreCol: 'Explore',
       supportTitle: 'If you need support now',
       supportText: 'This is a reflective tool, not a medical service. If you’re struggling, talk to someone you trust.',
