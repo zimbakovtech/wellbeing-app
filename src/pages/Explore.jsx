@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import Reveal from '../components/ui/Reveal.jsx'
 import Button from '../components/ui/Button.jsx'
 import Pill from '../components/ui/Pill.jsx'
-import SegmentedControl from '../components/ui/SegmentedControl.jsx'
 import ChartCard from '../components/charts/ChartCard.jsx'
 import LineChartView from '../components/charts/LineChartView.jsx'
 import BarChartView from '../components/charts/BarChartView.jsx'
@@ -10,25 +9,23 @@ import RadarChartView from '../components/charts/RadarChartView.jsx'
 import InsightCard from '../components/InsightCard.jsx'
 import Icon from '../components/ui/Icon.jsx'
 import { TOPICS, TOPIC_MAP, ACCENT } from '../data/topics.js'
-import { GENDERS, getAgeSeries, getGenderComparison, getRadarProfile } from '../data/datasets.js'
+import { getAgeSeries, getGenderComparison, getRadarProfile } from '../data/datasets.js'
 import { useI18n } from '../i18n/I18nContext.jsx'
 
 export default function Explore() {
   const { t, pick, lp } = useI18n()
   const [topicId, setTopicId] = useState('sleep')
-  const [gender, setGender] = useState('all')
 
   const topic = TOPIC_MAP[topicId]
   const accent = ACCENT[topic.accent]
 
-  const genderOptions = GENDERS.map((g) => ({ id: g, label: t(`common.groups.${g}`) }))
   const barLabels = { girls: t('common.groups.female'), boys: t('common.groups.male') }
 
-  const trend = useMemo(() => getAgeSeries(topicId, gender), [topicId, gender])
+  const trend = useMemo(() => getAgeSeries(topicId, 'all'), [topicId])
   const comparison = useMemo(() => getGenderComparison(topicId), [topicId])
   const radar = useMemo(
-    () => getRadarProfile(gender, 15).map((d) => ({ topic: pick(d.name), value: d.value })),
-    [gender, pick],
+    () => getRadarProfile('all', 15).map((d) => ({ topic: pick(d.name), value: d.value })),
+    [pick],
   )
 
   return (
@@ -49,24 +46,16 @@ export default function Explore() {
         </Reveal>
       </section>
 
-      {/* Sticky filter bar — one theme picker + one group toggle */}
+      {/* Sticky filter bar - one theme picker + one group toggle */}
       <div className="sticky top-16 z-30 mt-6 border-y border-line bg-paper/85 backdrop-blur-md sm:top-[4.5rem]">
         <div className="container-page py-4">
-          <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar" role="tablist" aria-label={t('nav.topics')}>
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar" role="tablist" aria-label={t('nav.topics')}>
             {TOPICS.map((top) => (
               <Pill key={top.id} active={top.id === topicId} onClick={() => setTopicId(top.id)} dotColor={ACCENT[top.accent].hex}>
                 {pick(top.name)}
               </Pill>
             ))}
-          </div>
-          <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <div className="flex items-center gap-2.5">
-              <span className="text-2xs font-semibold uppercase tracking-wide text-ink-faint">
-                {t('explore.groupLabel')}
-              </span>
-              <SegmentedControl label={t('explore.groupLabel')} size="sm" options={genderOptions} value={gender} onChange={setGender} />
-            </div>
-            <span className="ml-auto hidden items-center gap-2 text-sm text-ink-muted sm:flex">
+            <span className="ml-auto hidden shrink-0 items-center gap-2 text-sm text-ink-muted sm:flex">
               <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: accent.hex }} />
               {pick(topic.metricLabel)} · {t('common.higherBetter')}
             </span>

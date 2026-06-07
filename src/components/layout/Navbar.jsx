@@ -181,7 +181,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile drawer — slides in from the right */}
+      {/* Mobile drawer - slides in from the right */}
       <AnimatePresence>
         {open && (
           <div className="md:hidden">

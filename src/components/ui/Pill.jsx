@@ -1,7 +1,7 @@
 import { cn } from '../../lib/utils.js'
 import Icon from './Icon.jsx'
 
-/** Filter pill — used for topic selection. Dot/icon optional. */
+/** Filter pill - used for topic selection. Dot/icon optional. */
 export default function Pill({ active, onClick, children, icon, dotColor, className }) {
   return (
     <button

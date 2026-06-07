@@ -1,4 +1,4 @@
-// Wellbeing Check — a short, reflective self-assessment (not diagnostic).
+// Wellbeing Check - a short, reflective self-assessment (not diagnostic).
 // Bilingual { mk, en }. Each question maps to one dimension; options scored 0–3
 // where 3 is always the healthier pattern. Dimensions mirror the explore topics.
 

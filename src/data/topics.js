@@ -1,7 +1,7 @@
-// Topic catalogue — the editorial + data backbone of the app.
+// Topic catalogue - the editorial + data backbone of the app.
 // Every visible string is bilingual: { mk, en }. Numbers are HBSC-inspired and
 // illustrative (simulated for this project, not official tables). Copy is kept
-// short on purpose — one line of overview, one of why, one-line tips.
+// short on purpose - one line of overview, one of why, one-line tips.
 
 const L = (mk, en) => ({ mk, en })
 
@@ -17,8 +17,8 @@ export const TOPICS = [
       'Sleep restores body and mind. Teenagers need 8–10 hours.',
     ),
     why: L(
-      'Краткиот сон го намалува расположението и концентрацијата — еден од најсилните дневни сигнали.',
-      'Short sleep lowers mood and focus — one of the clearest daily signals of wellbeing.',
+      'Краткиот сон го намалува расположението и концентрацијата - еден од најсилните дневни сигнали.',
+      'Short sleep lowers mood and focus - one of the clearest daily signals of wellbeing.',
     ),
     metricLabel: L('Индекс на сон', 'Sleep index'),
     stat: {
@@ -48,7 +48,7 @@ export const TOPICS = [
     accent: 'stress',
     icon: 'HeartPulse',
     name: L('Стрес', 'Stress'),
-    tagline: L('Притисокот е нормален — да те смачка е сигналот.', 'Pressure is normal — feeling crushed is the signal.'),
+    tagline: L('Притисокот е нормален - да те смачка е сигналот.', 'Pressure is normal - feeling crushed is the signal.'),
     overview: L(
       'Малку стрес изострува фокус. Постојаниот притисок е тоа што ја троши благосостојбата.',
       'A little stress sharpens focus. Constant pressure is what wears wellbeing down.',
@@ -68,7 +68,7 @@ export const TOPICS = [
       'Stress is higher among older students, and the boy–girl gap widens with age.',
     ),
     tips: [
-      { title: L('Именувај го', 'Name it'), body: L('Запиши што те мачи — нејасниот притисок изгледа поголем.', 'Write down what worries you — vague pressure feels bigger.') },
+      { title: L('Именувај го', 'Name it'), body: L('Запиши што те мачи - нејасниот притисок изгледа поголем.', 'Write down what worries you - vague pressure feels bigger.') },
       { title: L('Дишење во квадрат', 'Box breathing'), body: L('Вдишувај 4, задржи 4, издишувај 4, задржи 4.', 'In for 4, hold 4, out 4, hold 4.') },
       { title: L('Намали го чекорот', 'Shrink the next step'), body: L('Замени „заврши го проектот“ со „напиши една реченица“.', 'Swap “finish the project” for “write one line”.') },
     ],
@@ -88,8 +88,8 @@ export const TOPICS = [
     name: L('Физичка активност', 'Physical Activity'),
     tagline: L('Лек што веќе го имаш.', 'Medicine you already own.'),
     overview: L(
-      'Околу 60 минути движење дневно го подига расположението и сонот — но активноста паѓа со возраста.',
-      'Around 60 minutes a day lifts mood and sleep — but activity falls with age.',
+      'Околу 60 минути движење дневно го подига расположението и сонот - но активноста паѓа со возраста.',
+      'Around 60 minutes a day lifts mood and sleep - but activity falls with age.',
     ),
     why: L(
       'Активните млади имаат подобро расположение и сон. Падот е поостар кај девојчињата.',
@@ -108,7 +108,7 @@ export const TOPICS = [
     tips: [
       { title: L('Прикачи го на навика', 'Stack it onto a habit'), body: L('Прошетај дел од патот или истегни се додека нешто се вчитува.', 'Walk part of the way, or stretch while something loads.') },
       { title: L('Биди во друштво', 'Make it social'), body: L('Прошетка со пријател се брои двојно.', 'A walk with a friend counts twice.') },
-      { title: L('Спушти ја летвата', 'Lower the bar'), body: L('Десет минути не е ништо — често победува совршен тренинг.', 'Ten minutes is not nothing — often beats the perfect workout.') },
+      { title: L('Спушти ја летвата', 'Lower the bar'), body: L('Десет минути не е ништо - често победува совршен тренинг.', 'Ten minutes is not nothing - often beats the perfect workout.') },
     ],
     reflection: L('Како се чувствува телото откако ќе се движиш?', 'How does your body feel after you move?'),
     raw: {
@@ -161,7 +161,7 @@ export const TOPICS = [
     accent: 'digital',
     icon: 'Smartphone',
     name: L('Дигитална рамнотежа', 'Digital Balance'),
-    tagline: L('Целта не е помалку екран — туку повеќе од она што е важно.', 'The goal isn’t less screen — it’s more of what matters.'),
+    tagline: L('Целта не е помалку екран - туку повеќе од она што е важно.', 'The goal isn’t less screen - it’s more of what matters.'),
     overview: L(
       'Екраните поврзуваат и забавуваат. Рамнотежата е дали времето онлајн те остава подобро или испразнето.',
       'Screens connect and entertain. Balance is whether time online leaves you better or emptier.',

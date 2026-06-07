@@ -2,7 +2,7 @@ import Icon from './ui/Icon.jsx'
 import { cn } from '../lib/utils.js'
 
 /**
- * "What this means" insight panel — plain-language reading of the data.
+ * "What this means" insight panel - plain-language reading of the data.
  * `points` is an optional list of short supporting bullets.
  */
 export default function InsightCard({ title = 'What this means', lead, points = [], className }) {

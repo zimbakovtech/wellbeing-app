@@ -1,7 +1,7 @@
 # Youth Wellbeing
 
 A HBSC-inspired digital experience that turns adolescent wellbeing data into stories,
-reflection and practical support. Built as a college project — a calm, editorial,
+reflection and practical support. Built as a college project - a calm, editorial,
 data-informed product rather than a dashboard.
 
 **Live:** https://wellbeing.zimbakov.dev
@@ -28,15 +28,15 @@ Themes covered: **sleep, stress, physical activity, loneliness, digital balance,
 Fully bilingual, **Macedonian-first**. Macedonian is the primary, default experience;
 English is an equal alternative. A visible **МК / EN** switch in the navbar swaps the
 language while keeping you on the same page (and remembers your choice). All visible
-copy — headings, navigation, cards, chart labels, check questions, recommendations,
-empty states — is hand-translated in [`src/i18n/strings.js`](src/i18n/strings.js), with
+copy - headings, navigation, cards, chart labels, check questions, recommendations,
+empty states - is hand-translated in [`src/i18n/strings.js`](src/i18n/strings.js), with
 the data layer carrying bilingual `{ mk, en }` content.
 
 ## Design
 
 - **Type:** Fraunces (editorial display serif) + Inter (UI/body)
 - **Palette:** warm off-white paper, charcoal ink, muted slate-blue primary, calm desaturated topic accents
-- **Motion:** subtle fade/lift, page cross-fades, animated charts — all respect `prefers-reduced-motion`
+- **Motion:** subtle fade/lift, page cross-fades, animated charts - all respect `prefers-reduced-motion`
 - **A11y:** keyboard-navigable, visible focus rings, skip link, semantic landmarks, charts carry text takeaways and per-cell values so meaning never relies on colour alone
 
 ## Tech stack
@@ -47,7 +47,7 @@ the data layer carrying bilingual `{ mk, en }` content.
 - **Framer Motion** for motion and route transitions
 - **lucide-react** icons (single, tree-shaken registry)
 
-All data is local and static — no backend, no runtime dependencies. The figures are
+All data is local and static - no backend, no runtime dependencies. The figures are
 **simulated, HBSC-inspired** values: they reproduce the well-documented shapes (most
 indices declining from age 11 → 15, widening boy/girl gaps) without copying official tables.
 
@@ -77,11 +77,11 @@ npm run preview    # serve the production build locally
 
 Requires Node 18+ (CI uses Node 20).
 
-## Deployment — GitHub Pages + custom domain
+## Deployment - GitHub Pages + custom domain
 
 This repo deploys to **https://wellbeing.zimbakov.dev**.
 
-1. **Tag-driven releases** — [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
+1. **Tag-driven releases** - [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
    builds and publishes `dist/` to Pages **only when a semantic version tag is pushed**
    (`v1.0.0`, `v2.3.5`). Plain pushes to `main` and pull requests do **not** deploy. Cut a
    release from a commit on `main`:
@@ -92,10 +92,10 @@ This repo deploys to **https://wellbeing.zimbakov.dev**.
    ```
 
    In the repo once: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. **Custom domain** — [`public/CNAME`](public/CNAME) sets `wellbeing.zimbakov.dev`, so the
+2. **Custom domain** - [`public/CNAME`](public/CNAME) sets `wellbeing.zimbakov.dev`, so the
    site serves from the domain root (`base: '/'` in `vite.config.js`). Point a DNS `CNAME`
    record for `wellbeing` at `<username>.github.io`.
-3. **Client-side routing** — Pages has no SPA rewrite, so [`public/404.html`](public/404.html)
+3. **Client-side routing** - Pages has no SPA rewrite, so [`public/404.html`](public/404.html)
    stores the requested deep link and bounces to the app, which restores it via the History
    API (script in `index.html`). Deep links like `/mk/explore` and `/en/topics/sleep` work
    and are shareable.
@@ -103,4 +103,4 @@ This repo deploys to **https://wellbeing.zimbakov.dev**.
 ---
 
 *Built with care for a college project. This is a reflective wellbeing tool, not a medical
-service — if anything here feels heavy, talk to someone you trust.*
+service - if anything here feels heavy, talk to someone you trust.*

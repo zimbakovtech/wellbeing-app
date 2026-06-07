@@ -1,6 +1,6 @@
 // UI copy in both languages. Macedonian is the primary product; English is a
-// full, equal alternative. Copy is intentionally concise — short headings, one
-// supporting line, one takeaway — so every section reads in a few seconds.
+// full, equal alternative. Copy is intentionally concise - short headings, one
+// supporting line, one takeaway - so every section reads in a few seconds.
 
 export const UI = {
   /* ------------------------------------------------------------- MACEDONSKI */
@@ -15,7 +15,7 @@ export const UI = {
     },
     common: {
       startCheck: 'Започни проверка',
-      takeCheck: 'Направи ја проверката',
+      takeCheck: 'Направи проверка',
       exploreData: 'Истражи ги податоците',
       startExploring: 'Започни со истражување',
       exploreFirst: 'Прво истражи ги податоците',
@@ -36,8 +36,8 @@ export const UI = {
       eyebrow: 'Искуство инспирирано од HBSC',
       titleA: 'Разбери ја благосостојбата на младите преку податоци и',
       titleHighlight: 'размислување',
-      lead: 'Истражи што го обликува секојдневието на младите — и претвори го во мали чекори.',
-      privacy: 'Приватно — ништо не го напушта твојот уред.',
+      lead: 'Истражи што го обликува секојдневието на младите - и претвори го во мали чекори.',
+      privacy: 'Приватно - ништо не го напушта твојот уред.',
       snapshotTitle: 'Преглед на благосостојбата',
       snapshotSub: 'По теми · возраст 15',
       overallIndex: 'вкупен индекс',
@@ -45,7 +45,7 @@ export const UI = {
       why: {
         eyebrow: 'Зошто е важно',
         title: 'Адолесценцијата обликува навики за цел живот.',
-        lead: 'Сон, движење, луѓе на кои им веруваш — малите работи решаваат како се чувствуваш.',
+        lead: 'Сон, движење, луѓе на кои им веруваш - малите работи решаваат како се чувствуваш.',
       },
       pillars: [
         { title: 'Види ги обрасците', body: 'Графикони што покажуваат како се менуваат темите низ годините.' },
@@ -66,7 +66,7 @@ export const UI = {
       topics: {
         eyebrow: 'Темите',
         title: 'Шест теми на благосостојба',
-        lead: 'Секоја е кратка приказна — што значи, зошто е важна и што помага.',
+        lead: 'Секоја е кратка приказна - што значи, зошто е важна и што помага.',
       },
       journey: {
         eyebrow: 'Како функционира',
@@ -79,13 +79,13 @@ export const UI = {
       },
       finalCta: {
         title: 'Љубопитен си како ти оди неделата?',
-        lead: 'Направи ја проверката — кратка, приватна и изненадувачки јасна.',
+        lead: 'Направи ја проверката - кратка, приватна и изненадувачки јасна.',
       },
     },
     explore: {
       eyebrow: 'Истражи ги податоците',
       title: 'Како се менува благосостојбата низ годините',
-      lead: 'Избери тема и група. Графиконите и увидот се ажурираат заедно.',
+      lead: 'Избери тема, графиконите и увидот се ажурираат заедно.',
       groupLabel: 'Група',
       insightTitle: 'Што значи ова',
       trend: {
@@ -100,7 +100,7 @@ export const UI = {
       radar: {
         title: 'Профил на благосостојба',
         desc: 'Сите теми наеднаш, возраст 15. Поголема форма значи повисока благосостојба.',
-        takeaway: 'Ниту една тема не ја кажува целата приказна — важна е рамнотежата.',
+        takeaway: 'Ниту една тема не ја кажува целата приказна - важна е рамнотежата.',
       },
     },
     topics: {
@@ -116,12 +116,12 @@ export const UI = {
       atAge15Desc: 'Симулирана слика како се чувствуваат младите на оваа тема.',
       tipsTitle: 'Три работи што помагаат',
       reflectEyebrow: 'Момент за размислување',
-      reflectNote: 'Нема точен одговор — вреди само да размислиш.',
+      reflectNote: 'Нема точен одговор - вреди само да размислиш.',
       prev: 'Претходна тема',
       next: 'Следна тема',
       notFoundEyebrow: 'Темата не е најдена',
       notFoundTitle: 'Немаме приказна за оваа тема.',
-      notFoundLead: 'Можеби е преместена — еве ги шесте теми што ги покриваме.',
+      notFoundLead: 'Можеби е преместена - еве ги шесте теми што ги покриваме.',
     },
     check: {
       eyebrow: 'Проверка на благосостојба',
@@ -140,7 +140,7 @@ export const UI = {
       profileTitle: 'Твојот профил по теми',
       byTheme: 'По теми',
       startTitle: 'Нежно место за почеток',
-      startLeadA: 'Според темите што бараат внимание сега —',
+      startLeadA: 'Според темите што бараат внимание сега -',
       reassurance:
         'Ова е размислување, не дијагноза. Ако нешто тежи, разговорот со некој на кого му веруваш е сила.',
       retake: 'Повтори ја проверката',
@@ -159,18 +159,18 @@ export const UI = {
         },
         low: {
           title: 'Малку си истоштен',
-          message: 'Неколку области бараат грижа. Биди нежен кон себе — да побараш поддршка е сила.',
+          message: 'Неколку области бараат грижа. Биди нежен кон себе - да побараш поддршка е сила.',
         },
       },
     },
     resources: {
       eyebrow: 'Ресурси и препораки',
       title: 'Мали чекори што навистина помагаат',
-      lead: 'Увидот вреди само ако дејствуваш. Избери едно што ти одговара — не сѐ одеднаш.',
+      lead: 'Увидот вреди само ако дејствуваш. Избери едно што ти одговара - не сѐ одеднаш.',
       breathing: {
         eyebrow: 'Двоминутно смирување',
         title: 'Дишење со кругот',
-        lead: 'Бавното дишење го смирува телото. Следи го кругот — вдишувај додека расте, издишувај додека се смалува.',
+        lead: 'Бавното дишење го смирува телото. Следи го кругот - вдишувај додека расте, издишувај додека се смалува.',
         start: 'Започни дишење',
         stop: 'Запри',
         ready: 'Кога си спремен',
@@ -192,18 +192,18 @@ export const UI = {
       all: 'Сите',
     },
     footer: {
-      tagline: 'HBSC-инспирирано искуство: податоци, размислување и поддршка.',
+      tagline: 'Проект инспириран од HBSC: податоци, размислување и поддршка.',
       exploreCol: 'Истражи',
       supportTitle: 'Ако ти треба поддршка сега',
       supportText: 'Ова е рефлексивна алатка, не медицинска услуга. Ако ти е тешко, обрати се до некој на кого му веруваш.',
       findSupport: 'Најди поддршка за млади',
-      rights: '© 2026 Youth Wellbeing. Студентски проект со илустративни податоци.',
+      rights: '© 2026 Дамјан Зимбаков',
       dataNote: 'Прикажаните податоци се симулирани за едукативни цели.',
     },
     notFound: {
       code: '404',
       title: 'Оваа страница си зеде момент за себе.',
-      lead: 'Не го најдовме тоа што го бараше — но остатокот е тука.',
+      lead: 'Не го најдовме тоа што го бараше - но остатокот е тука.',
       backHome: 'Назад на почетна',
     },
     langSwitch: 'Промени јазик',
@@ -242,8 +242,8 @@ export const UI = {
       eyebrow: 'A HBSC-inspired wellbeing experience',
       titleA: 'Understand youth wellbeing through data and',
       titleHighlight: 'reflection',
-      lead: 'Explore what shapes young people’s day-to-day life — and turn it into small steps.',
-      privacy: 'Private — nothing leaves your device.',
+      lead: 'Explore what shapes young people’s day-to-day life - and turn it into small steps.',
+      privacy: 'Private - nothing leaves your device.',
       snapshotTitle: 'Wellbeing snapshot',
       snapshotSub: 'Across themes · age 15',
       overallIndex: 'overall index',
@@ -251,7 +251,7 @@ export const UI = {
       why: {
         eyebrow: 'Why it matters',
         title: 'Adolescence shapes lifelong habits.',
-        lead: 'Sleep, movement, people you can talk to — small things decide how you feel.',
+        lead: 'Sleep, movement, people you can talk to - small things decide how you feel.',
       },
       pillars: [
         { title: 'See the patterns', body: 'Charts that show how the themes shift across the years.' },
@@ -272,7 +272,7 @@ export const UI = {
       topics: {
         eyebrow: 'The themes',
         title: 'Six threads of wellbeing',
-        lead: 'Each is a short story — what it means, why it matters, what helps.',
+        lead: 'Each is a short story - what it means, why it matters, what helps.',
       },
       journey: {
         eyebrow: 'How it works',
@@ -285,13 +285,13 @@ export const UI = {
       },
       finalCta: {
         title: 'Curious how your own week is going?',
-        lead: 'Take the wellbeing check — short, private and surprisingly clarifying.',
+        lead: 'Take the wellbeing check - short, private and surprisingly clarifying.',
       },
     },
     explore: {
       eyebrow: 'Explore the data',
       title: 'How wellbeing shifts across the years',
-      lead: 'Pick a theme and group. The charts and insight update together.',
+      lead: 'Pick a topic, the charts and insight update together.',
       groupLabel: 'Group',
       insightTitle: 'What this means',
       trend: {
@@ -306,7 +306,7 @@ export const UI = {
       radar: {
         title: 'Wellbeing profile',
         desc: 'Every theme at once, age 15. A larger shape means higher wellbeing.',
-        takeaway: 'No single theme tells the whole story — balance is what matters.',
+        takeaway: 'No single theme tells the whole story - balance is what matters.',
       },
     },
     topics: {
@@ -322,12 +322,12 @@ export const UI = {
       atAge15Desc: 'A simulated picture of how young people are faring on this theme.',
       tipsTitle: 'Three things that help',
       reflectEyebrow: 'A moment to reflect',
-      reflectNote: 'No right answer — just worth sitting with.',
+      reflectNote: 'No right answer - just worth sitting with.',
       prev: 'Previous theme',
       next: 'Next theme',
       notFoundEyebrow: 'Topic not found',
       notFoundTitle: 'We don’t have a deep dive for this topic.',
-      notFoundLead: 'It may have moved — here are the six themes we cover.',
+      notFoundLead: 'It may have moved - here are the six themes we cover.',
     },
     check: {
       eyebrow: 'Wellbeing check',
@@ -346,7 +346,7 @@ export const UI = {
       profileTitle: 'Your profile across themes',
       byTheme: 'By theme',
       startTitle: 'A gentle place to start',
-      startLeadA: 'Based on the themes asking for care right now —',
+      startLeadA: 'Based on the themes asking for care right now -',
       reassurance:
         'A reflection, not a diagnosis. If anything feels heavy, talking to someone you trust is a strength.',
       retake: 'Retake the check',
@@ -365,18 +365,18 @@ export const UI = {
         },
         low: {
           title: 'Running a little low',
-          message: 'A few areas are asking for care. Be gentle with yourself — reaching out is a strength.',
+          message: 'A few areas are asking for care. Be gentle with yourself - reaching out is a strength.',
         },
       },
     },
     resources: {
       eyebrow: 'Resources & recommendations',
       title: 'Small steps that actually help',
-      lead: 'Insight only matters if you act on it. Pick one that fits your week — not all at once.',
+      lead: 'Insight only matters if you act on it. Pick one that fits your week - not all at once.',
       breathing: {
         eyebrow: 'A two-minute reset',
         title: 'Breathe with the circle',
-        lead: 'Slow breathing settles your body. Follow the circle — in as it grows, out as it shrinks.',
+        lead: 'Slow breathing settles your body. Follow the circle - in as it grows, out as it shrinks.',
         start: 'Start breathing',
         stop: 'Stop',
         ready: 'Ready when you are',
@@ -398,18 +398,18 @@ export const UI = {
       all: 'All',
     },
     footer: {
-      tagline: 'A HBSC-inspired experience: data, reflection and support.',
+      tagline: 'A HBSC-inspired project: data, reflection and support.',
       exploreCol: 'Explore',
       supportTitle: 'If you need support now',
       supportText: 'This is a reflective tool, not a medical service. If you’re struggling, talk to someone you trust.',
       findSupport: 'Find youth support',
-      rights: '© 2026 Youth Wellbeing. A student project with illustrative data.',
+      rights: '© 2026 Damjan Zimbakov',
       dataNote: 'Data shown is simulated for educational purposes.',
     },
     notFound: {
       code: '404',
       title: 'This page took a moment for itself.',
-      lead: 'We couldn’t find what you were looking for — but the rest is right here.',
+      lead: 'We couldn’t find what you were looking for - but the rest is right here.',
       backHome: 'Back to home',
     },
     langSwitch: 'Change language',

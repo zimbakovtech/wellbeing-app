@@ -49,7 +49,7 @@ function LocalizedApp() {
   const { lang } = useParams()
   const location = useLocation()
 
-  // Keep <html lang> in sync (hooks must run unconditionally — guard inside).
+  // Keep <html lang> in sync (hooks must run unconditionally - guard inside).
   useEffect(() => {
     if (isLang(lang)) document.documentElement.lang = lang
   }, [lang])

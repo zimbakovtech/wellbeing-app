@@ -1,4 +1,4 @@
-// Scoring for the Wellbeing Check. Pure functions, language-agnostic — they
+// Scoring for the Wellbeing Check. Pure functions, language-agnostic - they
 // return ids and numbers; the UI resolves band titles/messages and dimension
 // labels through i18n.
 

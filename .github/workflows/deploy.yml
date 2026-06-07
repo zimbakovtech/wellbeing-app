@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 # Deploy only on semantic version tags (e.g. v1.0.0, v2.3.5).
 # Tags are expected to be cut from a commit on main. Plain pushes to main and
-# pull requests build nothing here — releases are explicit and tag-driven.
+# pull requests build nothing here - releases are explicit and tag-driven.
 on:
   push:
     tags:

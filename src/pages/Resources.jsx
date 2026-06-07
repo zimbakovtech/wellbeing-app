@@ -134,7 +134,7 @@ export default function Resources() {
   )
 }
 
-/* Calm breathing orb — inhale as it grows, exhale as it shrinks (4s each). */
+/* Calm breathing orb - inhale as it grows, exhale as it shrinks (4s each). */
 function BreathingExercise() {
   const { t } = useI18n()
   const reduce = useReducedMotion()

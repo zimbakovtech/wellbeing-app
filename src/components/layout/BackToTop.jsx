@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import Icon from '../ui/Icon.jsx'
 
-/** Floating "back to top" control — fades in once the page is scrolled. */
+/** Floating "back to top" control - fades in once the page is scrolled. */
 export default function BackToTop() {
   const [show, setShow] = useState(false)
   const reduce = useReducedMotion()

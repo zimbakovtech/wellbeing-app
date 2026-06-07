@@ -4,7 +4,7 @@ import { ACCENT } from '../data/topics.js'
 import { useI18n } from '../i18n/I18nContext.jsx'
 import { cn } from '../lib/utils.js'
 
-/** Topic teaser card — links to the deep dive. */
+/** Topic teaser card - links to the deep dive. */
 export default function TopicCard({ topic, className }) {
   const { pick, lp } = useI18n()
   const accent = ACCENT[topic.accent]

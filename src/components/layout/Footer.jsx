@@ -23,7 +23,6 @@ export default function Footer() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-ink-muted">{t('footer.tagline')}</p>
           </div>
-
           <nav aria-label={t('footer.exploreCol')}>
             <h3 className="text-2xs font-semibold uppercase tracking-[0.14em] text-ink-faint">
               {t('footer.exploreCol')}
@@ -43,7 +42,6 @@ export default function Footer() {
             <h3 className="text-2xs font-semibold uppercase tracking-[0.14em] text-ink-faint">
               {t('footer.supportTitle')}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-ink-muted">{t('footer.supportText')}</p>
             <a
               href="https://www.who.int/health-topics/adolescent-health"
               target="_blank"
@@ -57,9 +55,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-line pt-6 text-xs text-ink-faint sm:flex-row sm:items-center">
+        <div className="mt-12 text-center border-t border-line pt-6 text-sm text-ink-faint sm:flex-row sm:items-center">
           <p>{t('footer.rights')}</p>
-          <p>{t('footer.dataNote')}</p>
         </div>
       </div>
     </footer>

@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Neutral editorial scale — warm off-white paper to charcoal ink
+        // Neutral editorial scale - warm off-white paper to charcoal ink
         paper: '#FAFAF7',
         surface: '#FFFFFF',
         ink: {
-          DEFAULT: '#1B1E24', // primary text — charcoal
+          DEFAULT: '#1B1E24', // primary text - charcoal
           soft: '#3D424C',
           muted: '#6A707C', // secondary text
           faint: '#9AA0AB',

@@ -77,7 +77,7 @@ const REGISTRY = {
 }
 
 /**
- * <Icon name="Moon" className="..." /> — single stroke language across the app.
+ * <Icon name="Moon" className="..." /> - single stroke language across the app.
  * Decorative by default (aria-hidden); pass a `label` to expose it to AT.
  */
 export default function Icon({ name, className = 'h-5 w-5', strokeWidth = 1.75, label, style }) {

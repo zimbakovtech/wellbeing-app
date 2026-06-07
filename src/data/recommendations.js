@@ -31,7 +31,7 @@ export const RECOMMENDATIONS = [
     icon: 'Wind',
     title: L('Дишење во квадрат', 'Box breathing'),
     blurb: L('Брз ресет за вознемирен ум.', 'A fast reset for a racing mind.'),
-    action: L('Вдишувај 4, задржи 4, издишувај 4, задржи 4 — две минути.', 'In 4, hold 4, out 4, hold 4 — for two minutes.'),
+    action: L('Вдишувај 4, задржи 4, издишувај 4, задржи 4 - две минути.', 'In 4, hold 4, out 4, hold 4 - for two minutes.'),
     why: L('Бавното дишење го смирува телото и го враќа фокусот.', 'Slow breathing calms the body and brings focus back.'),
   },
   {
@@ -60,7 +60,7 @@ export const RECOMMENDATIONS = [
     accent: 'digital',
     icon: 'Filter',
     title: L('Среди го фидот', 'Curate your feed'),
-    blurb: L('Твојот фид е избор — нека работи за тебе.', 'Your feed is a choice — make it work for you.'),
+    blurb: L('Твојот фид е избор - нека работи за тебе.', 'Your feed is a choice - make it work for you.'),
     action: L('Стиши три сметки што те споредуваат; следи една што те смирува.', 'Mute three accounts that make you compare; follow one that calms you.'),
     why: L('Тоа што го гледаш го обликува тоа како се чувствуваш.', 'What you see shapes how you feel.'),
   },
@@ -91,7 +91,7 @@ export const RECOMMENDATIONS = [
     icon: 'MessageCircle',
     title: L('Прати ја првата порака', 'Send the first message'),
     blurb: L('Повеќето чекаат истиот поттик.', 'Most people are waiting for the same nudge.'),
-    action: L('Јави се на една личност денес — без голема причина.', 'Message one person today — no big reason needed.'),
+    action: L('Јави се на една личност денес - без голема причина.', 'Message one person today - no big reason needed.'),
     why: L('Мал, редовен контакт гради припадност.', 'Small, regular contact builds belonging.'),
   },
   {
