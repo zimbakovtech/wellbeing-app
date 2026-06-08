@@ -102,5 +102,10 @@ This repo deploys to **https://wellbeing.zimbakov.dev**.
 
 ---
 
-*Built with care for a college project. This is a reflective wellbeing tool, not a medical
-service - if anything here feels heavy, talk to someone you trust.*
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+*© 2026 Damjan Zimbakov — PNUV Course*
